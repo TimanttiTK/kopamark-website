@@ -1,0 +1,229 @@
+/* 1. Global Styles and Resets */
+* {
+    margin: 0; /* Remove default spacing */
+    padding: 0;
+    box-sizing: border-box; /* Makes padding not add to width */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Clean font */
+    line-height: 1.6; /* Better readability */
+    color: #333; /* Dark text for contrast */
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+a {
+    text-decoration: none; /* No underlines on links */
+    color: #007bff; /* Blue links */
+}
+
+ul {
+    list-style: none; /* No bullets */
+}
+
+/* 2. Header Styles */
+/* Update Hero Wrapper for Fade */
+.hero-wrapper {
+    background-image: url('../images/mountains.jpg'); /* Keep your path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 50vh;
+    position: relative; /* Already there - needed for ::before */
+    overflow: hidden; /* Prevents fade from spilling out */
+}
+
+.hero-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;  /* Slightly taller for noticeability */
+    background: linear-gradient(to bottom, #ffffff, rgba(248, 249, 250, 0)); /* Reversed: Starts solid at top, fades to transparent downward */
+    z-index: 1;
+}
+
+/* Ensure content is above the fade */
+.hero-wrapper > * {
+    position: relative;
+    z-index: 2; /* Keeps header and hero text on top */
+}
+.header {
+    background-color: transparent; /* Now shows the image underneath */
+    box-shadow: none; /* Remove shadow if it clashes - or keep for depth */
+    padding: 1rem 2rem; /* Keep padding */
+    position: relative; /* Or sticky if you want it fixed on scroll */
+    display: flex; /* Flex for logo and links */
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center; /* Vertically center items */
+}
+
+.logo h1 {
+    font-size: 1.5rem; /* Logo size */
+    color: #007bff; /* Blue logo */
+}
+
+.top-links {
+    display: flex; /* Horizontal list */
+    gap: 1.5rem; /* Space between links */
+}
+
+.top-links li a {
+    font-weight: bold; /* Bold links */
+    transition: color 0.3s; /* Smooth hover */
+}
+
+.top-links li a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* 3. Hero Section */
+.hero {
+    background-image: none; /* Remove from here */
+    background-color: transparent; /* Transparent to show wrapper's image */
+    text-align: center;
+    padding: 6rem 2rem; /* Adjust if needed for vertical spacing */
+    color: #fff; /* White text for contrast on image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 40vh;  /* Ensures room for image/fade */
+}
+
+.hero h1 {
+    font-size: 2.5rem; /* Big headline */
+    margin-bottom: 1rem;
+}
+
+.hero form {
+    display: flex; /* Inline form */
+    justify-content: center;
+    gap: 1rem; /* Space between fields */
+    flex-wrap: wrap; /* Wrap on small screens */
+}
+
+.hero select, .hero button {
+    padding: 0.5rem 1rem; /* Button/select size */
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+}
+
+.hero button {
+    background-color: #28a745; /* Green button */
+    color: #fff;
+    cursor: pointer; /* Hand on hover */
+    transition: background 0.3s;
+}
+
+.hero button:hover {
+    background-color: #218838; /* Darker green */
+}
+
+/* 4. Why Us Section */
+#why-us {
+    background-color: #e9ecef;
+    padding: 2rem;
+    text-align: center;
+}
+
+#why-us h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.features {
+    display: flex; /* Side-by-side features */
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.features div {
+    text-align: center;
+    width: 200px; /* Fixed width for now */
+}
+
+.features i {
+    display: block;
+    margin: 0 auto 0.5rem;
+    color: #007bff;  /* Blue to match theme */
+}
+
+/* 5. How It Works */
+#how-it-works {
+    background-color: #e9ecef; /* Light background for contrast */
+    padding: 2rem;
+    text-align: center;
+}
+
+#how-it-works h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.steps div {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 150px;
+}
+
+/* 6. Testimonials */
+#testimonials {
+    background-color: #e9ecef;
+    padding: 2rem;
+    text-align: center;
+    font-style: italic; /* Italic for quotes */
+}
+
+#testimonials blockquote {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#testimonials p {
+    font-size: 1rem;
+    color: #6c757d; /* Gray for author */
+}
+
+/* 7. Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* 8. Responsiveness (Add last) */
+@media (max-width: 768px) { /* For tablets/phones */
+    .header {
+        flex-direction: column; /* Stack logo and links */
+        text-align: center;
+    }
+
+    .top-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Smaller headline */
+    }
+
+    .hero form {
+        flex-direction: column; /* Stack form fields */
+    }
+
+    .features, .steps {
+        flex-direction: column; /* Stack items */
+    }
+}
