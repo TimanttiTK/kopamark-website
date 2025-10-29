@@ -6,6 +6,7 @@
     <title>Kopamark</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="hero-wrapper">  <!-- Wrapper only for top background + fade -->
@@ -14,18 +15,17 @@
                 <h1>Kopamark</h1>
             </div>
             <ul class="top-links">
-                <li><a href="">About Us</a></li>
-                <li><a href="">Services</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="">References</a></li>
+                <li><a href="">Palvelut</a></li>
+                <li><a href="yhteistiedot.html">Yhteistiedot</a></li>
+                <li><a href="">Referenssit</a></li>
             </ul>
         </div>
         <section id="home" class="hero">  <!-- Hero outside main for now, to keep wrapper small -->
-            <h1>We Clean Your Office.<br>You Focus on Business.</h1>
+            <h1><span class="bold-line">Me siivoamme.</span><br><span class="light-line">Sinä keskityt bisnekseen.</span></h1>
             <form>
-                <select><option>Location</option></select>
-                <select><option>Office Size</option></select>
-                <select><option>Frequency</option></select>
+                <select><option>Sijainti</option></select>
+                <select><option>Arvio (m2)</option></select>
+                <select><option></option></select>
                 <select><option>Service Type</option></select>
                 <button>Get Quote</button>
             </form>
@@ -34,21 +34,49 @@
 
     <main>  <!-- Main starts after wrapper, wraps lower content -->
         <section id="why-us">
-            <h2>Why Choose Kopamark?</h2>  <!-- Updated name for consistency -->
-            <div class="features">
-                <div><i class="fas fa-shield-alt fa-2x"></i> Bonded & Insured</div>
-                <div><i class="fas fa-leaf fa-2x"></i> Eco-Friendly</div>
-                <div><i class="fas fa-clock fa-2x"></i> Flexible Scheduling</div>  <!-- Add more like this -->
-                <div><i class="fas fa-check-circle fa-2x"></i> Satisfaction Guarantee</div>
+            <div class="left-content">
+                <h2>Miksi valita<br>Kopamark?</h2>  <!-- Updated name for consistency -->
+                <hr class="divider"> <!-- Uusi harmaa viiva otsikon alle -->
+                <div class="features">
+                    <div><i class="fas fa-shield-alt fa-2x"></i> Vakuutettu</div>
+                    <div><i class="fas fa-clock fa-2x"></i> Joustava</div>  <!-- Add more like this -->
+                    <div><i class="fas fa-check-circle fa-2x"></i> Tyytyväisyys-<br>takuu</div>
+                </div>
             </div>
+            <p>Puhdistus ei ole hauskaa. Se vie aikaa, on likaista ja johtaa turhiin vaivoihin. 
+                Onneksi meille se on intohimo, hoidamme toimistosi puhtauden ammattimaisesti, jotta voit keskittyä ydinbisnekseesi. 
+                <br><br>
+                Suomalaisena yrityksenä ymmärrämme paikalliset tarpeet: joustavat aikataulut työaikojen ulkopuolella 
+                ja luotettavaa palvelua ilman yllätyksiä. 
+                os et ole tyytyväinen, korjaamme asian takuullamme.
+            </p>
         </section>
         <section id="how-it-works">
-            <h2>Get Your Office Sparkling. It's Easy.</h2>
+            <h2>Näin se toimii.</h2>
             <div class="steps">
-                <div>1. Schedule</div>
-                <div>2. We Arrive</div>
-                <div>3. We Clean</div>
-                <div>4. Enjoy</div>
+                <div class="step">
+                    <i class="fas fa-calculator fa-3x"></i>
+                    <div>Täytä laskuri</div>
+                    <div class="step-description">Täytä laskuri</div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <i class="fas fa-bell-concierge fa-3x"></i>
+                    <div>Saa arvio sekunneissa</div>
+                    <div class="step-description">Saa arvio sekunneissa</div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <i class="fas fa-magnifying-glass fa-3x"></i>
+                    <div>Tarkastamme kiinteistön</div>
+                    <div class="step-description">Tarkastamme kiinteistön</div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <i class="fas fa-broom fa-3x"></i>
+                    <div>Siivoamme</div>
+                    <div class="step-description">Siivoamme</div>
+                </div>
             </div>
         </section>
         <section id="testimonials">

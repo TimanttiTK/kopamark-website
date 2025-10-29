@@ -6,15 +6,17 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif; /* Clean font */
+    font-family: 'Sora', Arial, Helvetica, sans-serif; /* Clean font */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     line-height: 1.6; /* Better readability */
-    color: #333; /* Dark text for contrast */
+    color: #004040; /* Dark text for contrast */
     background-color: #f8f9fa; /* Light gray background */
 }
 
 a {
     text-decoration: none; /* No underlines on links */
-    color: #007bff; /* Blue links */
+    color: #004040; /* Blue links */
 }
 
 ul {
@@ -40,7 +42,13 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;  /* Slightly taller for noticeability */
-    background: linear-gradient(to bottom, #ffffff, rgba(248, 249, 250, 0)); /* Reversed: Starts solid at top, fades to transparent downward */
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.97)10%,
+        rgba(255, 255, 255, 0.9)30%,
+        rgba(255, 255, 255, 0.85) 60%,
+        rgba(255, 255, 255, 0.5) 100%
+    ); /* Reversed: Starts solid at top, fades to transparent downward */
     z-index: 1;
 }
 
@@ -61,7 +69,7 @@ ul {
 
 .logo h1 {
     font-size: 1.5rem; /* Logo size */
-    color: #007bff; /* Blue logo */
+    color: #004040; /* Blue logo */
 }
 
 .top-links {
@@ -75,7 +83,7 @@ ul {
 }
 
 .top-links li a:hover {
-    color: #0056b3; /* Darker blue on hover */
+    color: #004040; /* Darker blue on hover */
 }
 
 /* 3. Hero Section */
@@ -84,7 +92,7 @@ ul {
     background-color: transparent; /* Transparent to show wrapper's image */
     text-align: center;
     padding: 6rem 2rem; /* Adjust if needed for vertical spacing */
-    color: #fff; /* White text for contrast on image */
+    color: #004040; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -92,7 +100,7 @@ ul {
 }
 
 .hero h1 {
-    font-size: 2.5rem; /* Big headline */
+    font-size: 3rem; /* Big headline */
     margin-bottom: 1rem;
 }
 
@@ -125,6 +133,17 @@ ul {
     background-color: #e9ecef;
     padding: 2rem;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom: 1px solid black;  /* Light gray border */
+    padding-bottom: 2rem;  /* Extra space at bottom */
+}
+
+.left-content {
+    display: flex;
+    flex-direction: column; 
+    margin-right: 6rem;
 }
 
 #why-us h2 {
@@ -132,22 +151,39 @@ ul {
     margin-bottom: 1.5rem;
 }
 
+h1, h2, h3 {
+    font-family: 'Sora', Arial, Helvetica, sans-serif;
+    font-weight: 700; /* Bold but rounded */
+}
+.divider {
+    border: none;
+    border-top: 2px solid #ccc; /* Harmaa viiva, ohut ja vaalea kuten mallissa */
+    margin: 0 auto 1.5rem; /* Keskitys ja tila alle */
+    width: 80%; /* Ei koko leveyttä, kuten mallissa */
+}
+
+#why-us p {
+    max-width: 500px; /* Rajoitettu leveys luettavuudelle */
+    margin-bottom: 1.5rem;
+    font-size: 1rem; /* Helposti luettava koko */
+    text-align: left;
+}
+
 .features {
     display: flex; /* Side-by-side features */
     justify-content: center;
-    gap: 2rem;
     flex-wrap: wrap;
 }
 
 .features div {
     text-align: center;
-    width: 200px; /* Fixed width for now */
+    width: 120px; /* Fixed width for now */
 }
 
 .features i {
     display: block;
-    margin: 0 auto 0.5rem;
-    color: #007bff;  /* Blue to match theme */
+    color: #004040;  /* Blue to match theme */
+    margin-bottom: 0.5rem;
 }
 
 /* 5. How It Works */
@@ -163,20 +199,26 @@ ul {
 }
 
 .steps {
-    display: flex;
-    justify-content: space-around;
-    gap: 1rem;
-    flex-wrap: wrap;
+    display: flex; /* Display steps in a row */
+    justify-content: space-around; /* Space between steps */
+    flex-wrap: wrap; /* Wrap on smaller screens */
 }
 
-.steps div {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 150px;
+.step {
+    text-align: center; /* Center align text */
+    margin: 20px; /* Space around each step */
+    flex: 1 1 200px; /* Flex-grow, flex-shrink, and base width */
 }
 
+.step-title {
+    font-weight: bold; /* Bold title */
+    margin: 10px 0; /* Space above and below title */
+}
+
+.step-description {
+    font-size: 0.9rem; /* Smaller font for description */
+    color: #6c757d; /* Gray color for description */
+}
 /* 6. Testimonials */
 #testimonials {
     background-color: #e9ecef;
@@ -199,7 +241,7 @@ ul {
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: #007bff;
+    background-color: #004040;
     color: #fff;
 }
 
@@ -226,4 +268,52 @@ footer {
     .features, .steps {
         flex-direction: column; /* Stack items */
     }
+}
+
+/* yhteistiedot.html*/
+.portrait {
+    text-align: center; /* Center the content */
+    margin: 20px 0; /* Add some vertical spacing */
+}
+.contact-info p {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    margin: 5px 0; /* Add some vertical spacing */
+}
+
+.contact-info i {
+    margin-right: 8px; /* Space between icon and text */
+    color: #1B3A4B; /* Optional: color for the icons */
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    padding: 10px;
+    background-color: #1B3A4B; /* Dark teal */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #145052; /* Darker shade on hover */
 }
