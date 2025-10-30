@@ -51,42 +51,89 @@
                 os et ole tyytyväinen, korjaamme asian takuullamme.
             </p>
         </section>
+
         <section id="how-it-works">
-            <h2>Näin se toimii.</h2>
-            <div class="steps">
-                <div class="step">
-                    <i class="fas fa-calculator fa-3x"></i>
-                    <div>Täytä laskuri</div>
-                    <div class="step-description">Täytä laskuri</div>
-                </div>
-                <div class="step-connector"></div>
-                <div class="step">
-                    <i class="fas fa-bell-concierge fa-3x"></i>
-                    <div>Saa arvio sekunneissa</div>
-                    <div class="step-description">Saa arvio sekunneissa</div>
-                </div>
-                <div class="step-connector"></div>
-                <div class="step">
-                    <i class="fas fa-magnifying-glass fa-3x"></i>
-                    <div>Tarkastamme kiinteistön</div>
-                    <div class="step-description">Tarkastamme kiinteistön</div>
-                </div>
-                <div class="step-connector"></div>
-                <div class="step">
-                    <i class="fas fa-broom fa-3x"></i>
-                    <div>Siivoamme</div>
-                    <div class="step-description">Siivoamme</div>
+            <div class="inner-box">
+                <h2>Näin se toimii.</h2>
+                <div class="steps">
+                    
+                    <div class="step">
+                        <i class="fas fa-calculator fa-3x"></i>
+                        <div>Täytä laskuri</div>
+                        <div class="step-description">Syötä perustiedot nopeasti laskuriin, se vie vain hetken.</div>
+                    </div>
+                    <svg class="curve" viewBox="0 0 200 40" preserveAspectRatio="none">
+                        <path d="M0,25 Q100,0 200,25" />
+                    </svg>
+                    <div class="step">
+                        <i class="fas fa-bell-concierge fa-3x"></i>
+                        <div>Saa arvio sekunneissa</div>
+                        <div class="step-description">Näet hinta-arvion heti ilman sitoumuksia.</div>
+                    </div>
+                    <svg class="curve-down" viewBox="0 0 200 40" preserveAspectRatio="none">
+                        <path d="M0,25 Q100,50 200,25" />
+                    </svg>
+                    <div class="step">
+                        <i class="fas fa-magnifying-glass fa-3x"></i>
+                        <div>Tarkastamme kiinteistön</div>
+                        <div class="step-description">Varmistamme paikan päällä, että kaikki vastaa odotuksia.</div>
+                    </div>
+                    <svg class="curve" viewBox="0 0 200 40" preserveAspectRatio="none">
+                        <path d="M0,25 Q100,0 200,25" />
+                    </svg>
+                    <div class="step">
+                        <i class="fas fa-broom fa-3x"></i>
+                        <div>Siivoamme</div>
+                        <div class="step-description">Ammattitiimimme hoitaa siivouksen sovittuina ajankohtina.</div>
+                    </div>
                 </div>
             </div>
         </section>
         <section id="testimonials">
-            <blockquote>"Best office cleaning service—reliable and thorough!"</blockquote>
-            <p>- Jane D., Tech Startup CEO</p>
+            <blockquote>"Kommentit"</blockquote>
+            <p>- Nimi</p>
         </section>
     </main>
     
     <footer>
-        <p>Copyright &copy; 2024 Kopamark. All rights reserved.</p>
+        <div class="footer-inner">
+            <div class="footer-col about">
+                <h4>Kopamark</h4>
+                <p>Siivoamme toimistosi ammattimaisesti. Sinä keskityt siihen, mitä teet parhaiten.</p>
+            </div>
+
+            <div class="footer-col contact">
+                <h4>Yhteystiedot</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:+358442313252">044 231 3252</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:tomikopaly@kopamark.com">tomikopaly@kopamark.com</a></p>
+            </div>
+
+            <div class="footer-col links">
+                <h4>Pikalinkit</h4>
+                <ul>
+                    <li><a href="index.html">Etusivu</a></li>
+                    <li><a href="index.html#why-us">Miksi me</a></li>
+                    <li><a href="index.html#how-it-works">Näin se toimii</a></li>
+                    <li><a href="yhteistiedot.html">Yhteystiedot</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col newsletter">
+                <h4>Tilaa uutiskirje</h4>
+                <form class="footer-newsletter" action="#" method="post" novalidate>
+                    <input type="email" name="email" placeholder="Sähköposti" required>
+                    <button type="submit">Tilaa</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <small>&copy; 2024 Kopamark. Kaikki oikeudet pidätetään.</small>
+            <div class="social">
+                <a href="#" aria-label="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

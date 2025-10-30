@@ -118,7 +118,7 @@ ul {
 }
 
 .hero button {
-    background-color: #28a745; /* Green button */
+    background-color: #004040; /* Green button */
     color: #fff;
     cursor: pointer; /* Hand on hover */
     transition: background 0.3s;
@@ -136,8 +136,6 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border-bottom: 1px solid black;  /* Light gray border */
-    padding-bottom: 2rem;  /* Extra space at bottom */
 }
 
 .left-content {
@@ -182,15 +180,23 @@ h1, h2, h3 {
 
 .features i {
     display: block;
-    color: #004040;  /* Blue to match theme */
+    color: #004040;  /* Teal to match theme */
     margin-bottom: 0.5rem;
 }
 
 /* 5. How It Works */
 #how-it-works {
     background-color: #e9ecef; /* Light background for contrast */
-    padding: 2rem;
+    padding: 0.5rem 2rem;
     text-align: center;
+    padding-bottom: 1rem;
+}
+
+.inner-box {
+    background-color: #f0f8ff; /* White background for inner box */
+    padding: 1rem;
+    border-radius: 30px; /* Pyöristetyt reunat – pehmentää eroa */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.212); /* Varjo nostaa osion esiin */
 }
 
 #how-it-works h2 {
@@ -200,16 +206,37 @@ h1, h2, h3 {
 
 .steps {
     display: flex; /* Display steps in a row */
-    justify-content: space-around; /* Space between steps */
-    flex-wrap: wrap; /* Wrap on smaller screens */
+    justify-content: space-between; /* Space between steps */
+    align-items: flex-start; /* Align items at the start */
+    position: relative; /* Position relative for absolute children */
 }
 
 .step {
     text-align: center; /* Center align text */
-    margin: 20px; /* Space around each step */
-    flex: 1 1 200px; /* Flex-grow, flex-shrink, and base width */
+    margin: 0px; /* Space around each step */
+    flex: 1; /* Allow steps to grow equally */
+    position: relative; /* Position relative for the connector */
 }
 
+.curve {
+  width: 160px; /* säädä etäisyyttä vaiheiden välillä */
+  height: 40px;
+  position: relative;
+  top: 30px; /* siirtää viivaa ylöspäin */
+}
+.curve-down{
+  width: 160px;
+  height: 40px;
+  position: relative;
+  top: 80px; /* siirtää viivaa alemmas */
+}
+
+.curve path, .curve-down path {
+  stroke: #004040;             /* viivan väri */
+  stroke-width: 2;          /* paksuus */
+  stroke-dasharray: 4 6;    /* tekee pisteviivan */
+  fill: none;
+}
 .step-title {
     font-weight: bold; /* Bold title */
     margin: 10px 0; /* Space above and below title */
@@ -239,10 +266,126 @@ h1, h2, h3 {
 
 /* 7. Footer */
 footer {
-    text-align: center;
-    padding: 1rem;
+    text-align: left;
+    padding: 3rem 2rem;
     background-color: #004040;
     color: #fff;
+    font-size: 0.95rem;
+}
+
+/* footer content layout */
+.footer-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+    align-items: start;
+}
+
+.footer-col h4 {
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+}
+
+.footer-col p, .footer-col ul, .footer-col a {
+    color: #e8f6f6;
+    line-height: 1.5;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin: 0.35rem 0;
+}
+
+.footer-col a {
+    color: #e8f6f6;
+    text-decoration: none;
+}
+
+.footer-col a:hover {
+    text-decoration: underline;
+}
+
+/* newsletter */
+.footer-newsletter {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.footer-newsletter input[type="email"] {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.footer-newsletter button {
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    border: none;
+    background: #1B3A4B;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* bottom row */
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-bottom small {
+    color: rgba(255,255,255,0.85);
+}
+
+/* social icons */
+.social a {
+    color: #e8f6f6;
+    margin-left: 0.6rem;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.03);
+}
+
+.social a:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .footer-inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-newsletter {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 /* 8. Responsiveness (Add last) */
