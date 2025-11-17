@@ -779,6 +779,7 @@ main h1 {
     .faq-item summary {
         padding: 0;
         font-size: 1rem;
+        text-align: left;
     }
     #price-result {
         margin: 1rem;
