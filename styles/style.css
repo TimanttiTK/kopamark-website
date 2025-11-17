@@ -286,7 +286,7 @@ h1, h2, h3 {
 footer {
     text-align: left;
     padding: 1rem 1rem;
-    background-color: rgb(40, 101, 126);
+    background-color: #004040/*rgb(40, 101, 126)*/;
     color: #fff;
     font-size: 0.95rem;
 }
