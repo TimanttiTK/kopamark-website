@@ -13,24 +13,17 @@
     <section class="hero-wrapper">  <!-- Wrapper only for top background + fade -->
         <section class="header">
             <div class="logo">
-                <li><a href="index.html"><h1>Kopamark</h1></a></li>
+                <a href="index.html"><h1>Kopamark</h1></a>
             </div>
+            
             <div class="hamburger" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
 
             <ul class="top-links">
-                <div class="mobile-menu-header">
-                    <li class="logo"> 
-                        <a href="index.html"><h1>Kopamark</h1></a>
-                    </li>
-                    <li class="close-menu" onclick="toggleMenu()">&times;</li>
-                </div>
-
-                <div class="mobile-menu-nav">
-                    <li><a href="index.html">Palvelut</a></li>
-                    <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
-                </div>
+                <li class="close-menu" onclick="toggleMenu()">&times;</li>
+                <li><a href="index.html">Palvelut</a></li>
+                <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
             </ul>
         </section>
         <section id="home" class="hero">  <!-- Hero outside main for now, to keep wrapper small -->
