@@ -9,28 +9,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="hero-wrapper">  <!-- Wrapper only for top background + fade -->
-        <div class="header">
+    <div class="container">
+    <section class="hero-wrapper">  <!-- Wrapper only for top background + fade -->
+        <section class="header">
             <div class="logo">
-                <h1>Kopamark</h1>
+                <li><a href="index.html"><h1>Kopamark</h1></a></li>
             </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+
             <ul class="top-links">
-                <li><a href="">Palvelut</a></li>
-                <li><a href="yhteistiedot.html">Yhteistiedot</a></li>
-                <li><a href="">Referenssit</a></li>
+                <div class="mobile-menu-header">
+                    <li class="logo"> 
+                        <a href="index.html"><h1>Kopamark</h1></a>
+                    </li>
+                    <li class="close-menu" onclick="toggleMenu()">&times;</li>
+                </div>
+
+                <div class="mobile-menu-nav">
+                    <li><a href="index.html">Palvelut</a></li>
+                    <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+                </div>
             </ul>
-        </div>
+        </section>
         <section id="home" class="hero">  <!-- Hero outside main for now, to keep wrapper small -->
             <h1><span class="bold-line">Me siivoamme.</span><br><span class="light-line">Sinä keskityt bisnekseen.</span></h1>
-            <form>
-                <select><option>Sijainti</option></select>
-                <select><option>Arvio (m2)</option></select>
-                <select><option></option></select>
-                <select><option>Service Type</option></select>
-                <button>Get Quote</button>
+            <form id="price-form">
+                <input type="number" id="area" placeholder="Siivottava pinta-ala (m²)" min="0" step="1" required>  <!-- Area input -->
+                <select id="location" required>  <!-- Uusi sijainti-select -->
+                    <option value="">Sijainti</option>
+                    <option value="helsinki">Helsinki</option>
+                    <option value="espoo">Espoo</option>
+                    <option value="vantaa">Vantaa</option>
+                </select>
+                <select id="freq" required>  <!-- Freq select -->
+                    <option value="">Tiheys (kertaa/viikko)</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <select id="wc" required>  <!-- WC range -->
+                    <option value="">WC:t</option>
+                    <option value="0-5">0-5</option>
+                    <option value="6-10">6-10</option>
+                    <option value="11+">11+</option>
+                </select>
+                <button type="button" onclick="calculatePrice()">Laske Arvio</button>
             </form>
         </section>
-    </div>  <!-- Close wrapper here - fade now at bottom of hero -->
+    </section>  <!-- Close wrapper here - fade now at bottom of hero -->
 
     <main>  <!-- Main starts after wrapper, wraps lower content -->
         <section id="why-us">
@@ -48,7 +78,7 @@
                 <br><br>
                 Suomalaisena yrityksenä ymmärrämme paikalliset tarpeet: joustavat aikataulut työaikojen ulkopuolella 
                 ja luotettavaa palvelua ilman yllätyksiä. 
-                os et ole tyytyväinen, korjaamme asian takuullamme.
+                Jos et ole tyytyväinen, korjaamme asian takuullamme.
             </p>
         </section>
 
@@ -56,7 +86,6 @@
             <div class="inner-box">
                 <h2>Näin se toimii.</h2>
                 <div class="steps">
-                    
                     <div class="step">
                         <i class="fas fa-calculator fa-3x"></i>
                         <div>Täytä laskuri</div>
@@ -107,33 +136,13 @@
                 <p><i class="fas fa-phone"></i> <a href="tel:+358442313252">044 231 3252</a></p>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:tomikopaly@kopamark.com">tomikopaly@kopamark.com</a></p>
             </div>
-
-            <div class="footer-col links">
-                <h4>Pikalinkit</h4>
-                <ul>
-                    <li><a href="index.html">Etusivu</a></li>
-                    <li><a href="index.html#why-us">Miksi me</a></li>
-                    <li><a href="index.html#how-it-works">Näin se toimii</a></li>
-                    <li><a href="yhteistiedot.html">Yhteystiedot</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col newsletter">
-                <h4>Tilaa uutiskirje</h4>
-                <form class="footer-newsletter" action="#" method="post" novalidate>
-                    <input type="email" name="email" placeholder="Sähköposti" required>
-                    <button type="submit">Tilaa</button>
-                </form>
-            </div>
         </div>
 
         <div class="footer-bottom">
-            <small>&copy; 2024 Kopamark. Kaikki oikeudet pidätetään.</small>
-            <div class="social">
-                <a href="#" aria-label="facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+            <small>&copy; <script>document.write(new Date().getFullYear())</script> Kopamark. Kaikki oikeudet pidätetään.</small>
         </div>
     </footer>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

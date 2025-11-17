@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yhteystiedot | Kopamark</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+</head>
+<script>
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const low = urlParams.get('low');
+        const high = urlParams.get('high');
+        const text = urlParams.get('text');
+
+        if (low && high && text) {
+            document.getElementById('price-result').style.display = 'block';
+            document.getElementById('price-result').innerHTML = `<h2>Arvioitu kuukausihinta: ${low}–${high} € (ALV 0%).</h2><p>Tämä on alustava haarukka perustuen antamiisi tietoihin. Ota yhteyttä tarkempaan tarjoukseen!</p>`;
+        }
+        // Jos ei parametreja → div jää piiloon (display: none)
+    };
+</script>
+<body>
+    <div class="container">
+    <section class="header">
+        <div class="logo">
+            <li><a href="index.html"><h1>Kopamark</h1></a></li>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="top-links">
+            <div class="mobile-menu-header">
+                <li class="logo"> 
+                    <a href="index.html"><h1>Kopamark</h1></a>
+                </li>
+                <li class="close-menu" onclick="toggleMenu()">&times;</li>
+            </div>
+
+            <div class="mobile-menu-nav">
+                <li><a href="index.html">Palvelut</a></li>
+                <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+            </div>
+        </ul>
+    </section>
+    <div id="price-result" style="display: none;"></div>
+
+    <main>
+        <h1>Ota yhteyttä!</h1>
+        
+        <!-- <p style="text-align: center;">Olemme täällä auttamassa! Saat ilmaisen arvion toimistosi siivouksesta.<br>Puhdas ympäristö nostaa tuottavuutta ja vähentää sairaspoissaoloja.<br>Kerro tarpeistasi ja räätälöimme palvelun juuri sinulle.</p>-->
+        <section class="contact-container">
+            <section id="left-section">
+                <div class="portrait">
+                    <img src="./images/tomi.jpg" alt="Tomi Kopaly" class="portrait-image">
+                    <div class="contact-info">
+                        <p>
+                            <i class="fas fa-phone"></i>  <!-- Phone icon -->
+                            <span>044 231 3252</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>  <!-- Email icon -->
+                            <span>tomikopaly@kopamark.com</span>
+                        </p>
+                    </div>
+                </div>            
+            </section>
+            <section id="right-section">
+                <form action="#" method="post" class="contact-form">
+                    <h3>Täytä tiedot</h3>
+                    <label for="name">Nimi:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Puhelin:</label>
+                    <input type="phone" id="phone" name="phone" required>
+
+                    <label for="email">Sähköposti:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Viesti:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Lähetä</button>
+                </form>
+            </section>
+        </section>
+        <section class="info">
+            <section class="infotext-section">
+                <h2>Usein kysytyt kysymykset</h2>
+                <p>Jäikö jokin askarruttaa? <br><br>Tässä on vastauksia yleisimpiin kysymyksiin toimistosiivouksesta. Jos et löydä etsimääsi, ota rohkeasti yhteyttä!</p>
+            </section>
+            <section id="faq-section" class="faq-section">
+                <details class="faq-item">
+                    <summary>Mitä toimistosiivous sisältää?</summary>
+                    <div class="faq-answer">
+                        <p>Perussiivous kattaa lattioiden imuroinnin ja pesun, pintojen pyyhkimisen, roskien tyhjennyksen, saniteettitilojen puhdistuksen sekä keittiön ja taukotilojen siivouksen. Räätälöimme palvelun tarpeidesi mukaan.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Mitä siivous maksaa?</summary>
+                    <div class="faq-answer">
+                        <p>Hinta riippuu toimiston koosta, tiheydestä ja lisäpalveluista. Käytä laskuriamme alustavaan arvioon – tarkka tarjous ilmaisen käynnin jälkeen.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Siivotaanko työaikana vai sen ulkopuolella?</summary>
+                    <div class="faq-answer">
+                        <p>Joustamme asiakkaan toiveiden mukaan.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Tarvitseeko toimistossa olla joku paikalla siivouksen aikana?</summary>
+                    <div class="faq-answer">
+                        <p>Ei tarvitse, jos annatte meille avaimet tai koodin. Voimme siivota työajan ulkopuolella.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Mitä jos siivous ei tyydytä?</summary>
+                    <div class="faq-answer">
+                        <p>Ota yhteyttä heti – korjaamme asian 24 tunnin sisällä.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Voiko palveluun lisätä lisätoiveita?</summary>
+                    <div class="faq-answer">
+                        <p>Kyllä, räätälöimme palvelua – esim. ikkunoiden pesu, mattojen puhdistus tai desinfiointi.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Oletteko vakuutettuja?</summary>
+                    <div class="faq-answer">
+                        <p>Kyllä, yrityksemme ja työntekijämme ovat täysin vakuutettuja vahinkojen varalta.</p>
+                    </div>
+                </details>
+            </section>
+        </section>
+        <section class="ready-section">
+            <div class="ready-container">
+                <h2>Valmis aloittamaan?</h2>
+                <p>Puhdas toimisto odottaa – anna meidän hoitaa siivous, niin sinä voit keskittyä olennaiseen. Saat ilmaisen arvion alle 2 minuutissa.</p>
+                
+                <div class="ready-buttons">
+                    <a href="index.html#home" class="ready-btn primary">Hae hinta-arvio nyt</a>
+                </div>
+
+                <div class="ready-benefits">
+                    <div class="benefit">
+                        <i class="fas fa-clock fa-3x"></i>
+                        <p>Säästät aikaa</p>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-smile fa-3x"></i>
+                        <p>Iloisempi henkilökunta</p>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-shield-alt fa-3x"></i>
+                        <p>Tyytyväisyystakuu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col about">
+                <h4>Kopamark</h4>
+                <p>Siivoamme toimistosi ammattimaisesti. Sinä keskityt siihen, mitä teet parhaiten.</p>
+            </div>
+
+            <div class="footer-col contact">
+                <h4>Yhteystiedot</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:+358442313252">044 231 3252</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:tomikopaly@kopamark.com">tomikopaly@kopamark.com</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <small>&copy; <script>document.write(new Date().getFullYear())</script> Kopamark. Kaikki oikeudet pidätetään.</small>
+        </div>
+    </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -23,14 +23,35 @@ ul {
     list-style: none; /* No bullets */
 }
 
+div.logo li {
+    list-style: none; /* No bullets for logo if wrapped in li */
+}
+
+.container,
+header,
+.hero,
+#why-us,
+#how-it-works .inner-box,
+.contact-container,
+.info,
+.ready-container,
+footer .footer-inne {
+    width: min(100%, 1920px); /* Max width for content */
+    margin: 0 auto; /* Center horizontally */
+    box-sizing: border-box; /* Include padding in width */
+}
+.hero-wrapper .header,
+.hero {
+    max-width: 1920px;   /* <--- sama täällä */
+}
+
 /* 2. Header Styles */
 /* Update Hero Wrapper for Fade */
 .hero-wrapper {
-    background-image: url('../images/mountains.jpg'); /* Keep your path */
+    background-image: url('../images/office.jpg'); /* Keep your path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 50vh;
     position: relative; /* Already there - needed for ::before */
     overflow: hidden; /* Prevents fade from spilling out */
 }
@@ -88,7 +109,6 @@ ul {
 
 /* 3. Hero Section */
 .hero {
-    background-image: none; /* Remove from here */
     background-color: transparent; /* Transparent to show wrapper's image */
     text-align: center;
     padding: 6rem 2rem; /* Adjust if needed for vertical spacing */
@@ -104,28 +124,26 @@ ul {
     margin-bottom: 1rem;
 }
 
-.hero form {
-    display: flex; /* Inline form */
-    justify-content: center;
-    gap: 1rem; /* Space between fields */
-    flex-wrap: wrap; /* Wrap on small screens */
+.hero input, .hero select, .hero button {
+    height: 45px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px; /* Pyöristys kuten mallissa */
+    border: 1px solid grey; /* Kevyt reuna */
+    font-family: 'Sora', Arial, Helvetica, sans-serif; /* Clean font */
+    font-size: 1rem; /* Sopiva koko kentille */
+    font-weight: 500;
 }
-
-.hero select, .hero button {
-    padding: 0.5rem 1rem; /* Button/select size */
-    border: none;
-    border-radius: 4px; /* Rounded corners */
+.hero input {
+    min-width: 250px; /* Leveämpi sijainnille, jos tarvitsee */
 }
 
 .hero button {
-    background-color: #004040; /* Green button */
+    background-color: #004040; /* Vihreä, kuten mallin CTA */
     color: #fff;
-    cursor: pointer; /* Hand on hover */
-    transition: background 0.3s;
+    cursor: pointer;
 }
-
 .hero button:hover {
-    background-color: #218838; /* Darker green */
+    background-color: #0056b3; /* Tummempi vihreä hoverissa */
 }
 
 /* 4. Why Us Section */
@@ -267,8 +285,8 @@ h1, h2, h3 {
 /* 7. Footer */
 footer {
     text-align: left;
-    padding: 3rem 2rem;
-    background-color: #004040;
+    padding: 1rem 1rem;
+    background-color: rgb(40, 101, 126);
     color: #fff;
     font-size: 0.95rem;
 }
@@ -288,7 +306,7 @@ footer {
     font-size: 1.05rem;
 }
 
-.footer-col p, .footer-col ul, .footer-col a {
+.footer-col p, .footer-col a {
     color: #e8f6f6;
     line-height: 1.5;
 }
@@ -297,42 +315,6 @@ footer {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
-.footer-col ul li {
-    margin: 0.35rem 0;
-}
-
-.footer-col a {
-    color: #e8f6f6;
-    text-decoration: none;
-}
-
-.footer-col a:hover {
-    text-decoration: underline;
-}
-
-/* newsletter */
-.footer-newsletter {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.footer-newsletter input[type="email"] {
-    flex: 1;
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
-    border: none;
-    outline: none;
-}
-
-.footer-newsletter button {
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
-    border: none;
-    background: #1B3A4B;
-    color: #fff;
-    cursor: pointer;
 }
 
 /* bottom row */
@@ -350,73 +332,23 @@ footer {
 .footer-bottom small {
     color: rgba(255,255,255,0.85);
 }
-
-/* social icons */
-.social a {
-    color: #e8f6f6;
-    margin-left: 0.6rem;
-    display: inline-block;
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    text-align: center;
-    border-radius: 4px;
-    background: rgba(255,255,255,0.03);
-}
-
-.social a:hover {
-    background: rgba(255,255,255,0.08);
-}
-
-/* responsive */
-@media (max-width: 900px) {
-    .footer-inner {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .footer-newsletter {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 500px) {
-    .footer-inner {
-        grid-template-columns: 1fr;
-    }
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-/* 8. Responsiveness (Add last) */
-@media (max-width: 768px) { /* For tablets/phones */
-    .header {
-        flex-direction: column; /* Stack logo and links */
-        text-align: center;
-    }
-
-    .top-links {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .hero h1 {
-        font-size: 2rem; /* Smaller headline */
-    }
-
-    .hero form {
-        flex-direction: column; /* Stack form fields */
-    }
-
-    .features, .steps {
-        flex-direction: column; /* Stack items */
-    }
-}
-
 /* yhteistiedot.html*/
+main h1 {
+    text-align: center;
+    font-size: 3rem;
+}
 .portrait {
     text-align: center; /* Center the content */
-    margin: 20px 0; /* Add some vertical spacing */
+}
+.portrait h2 {
+    font-size: 50px; /* Teal color for heading */
+}
+.contact-container {
+    display: flex; /* Flexbox for side-by-side sections */
+    flex-wrap: wrap; /* Wrap on smaller screens */
+    justify-content: space-evenly; /* Center content horizontally */
+    margin-top: 2rem;
+    margin-bottom: 4rem; /* Space below the container */
 }
 .contact-info p {
     display: flex; /* Use flexbox for alignment */
@@ -429,34 +361,440 @@ footer {
     margin-right: 8px; /* Space between icon and text */
     color: #1B3A4B; /* Optional: color for the icons */
 }
+
 .contact-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 20px auto;
+    background-color: #fff; /* Valkoinen lomake taustaksi */
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 8px; /* Pyöristetyt reunat */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Kevyt varjo nostamaan lomaketta */
+    max-width: 600px; /* Rajoitettu leveys, jotta ei levene liikaa */
+    margin: 0 auto; /* Keskitys */
+}
+.contact-form h3 {
+    margin-bottom: 1rem;
 }
 
-.contact-form label {
-    margin-bottom: 5px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    padding: 10px;
-    margin-bottom: 15px;
+.contact-form input, .contact-form textarea {
+    width: 100%; /* Täysi leveys kentille */
+    padding: 0.75rem;
+    margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
 .contact-form button {
-    padding: 10px;
-    background-color: #1B3A4B; /* Dark teal */
-    color: white;
+    font-size: 1rem;
+    background-color: #004040; /* Vihreä nappi CTA:ksi */
+    color: #fff;
+    padding: 0.75rem 2rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 .contact-form button:hover {
-    background-color: #145052; /* Darker shade on hover */
+    background-color: #0056b3; /* Tummempi vihreä hoverissa */
+}
+
+#price-result {
+    background-color: #f0f8ff; /* Vaalea tausta tulokselle */
+    margin: 0 30rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.212);
+    text-align: center;
+    color: #004040; /* Vihreä teksti onnistumiselle */
+}
+#price-result.active {
+    display: block; /* Näytä kun sisältö asetettu */
+}
+
+#price-result h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+/* FAQ-osio */
+.info {
+    display: flex;
+    justify-content: space-between;
+    background-image: url('../images/1.jpg'); /* Keep your path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 60vh;
+    padding: 2rem;
+    position: relative; /* Already there - needed for ::before */
+    overflow: hidden; /* Prevents fade from spilling out */
+    gap: 1rem;
+}
+
+.info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;  /* Slightly taller for noticeability */
+    background: linear-gradient(
+        to bottom,
+        rgba(40, 101, 126, 0.5) 100%
+    ); /* Reversed: Starts solid at top, fades to transparent downward */
+    z-index: 1;
+}
+.info > * {
+    position: relative;
+    z-index: 2; /* Keeps header and hero text on top */
+}
+.infotext-section h2 {
+    color: #ffffff; /* White text for contrast */
+    font-size: 3rem;
+    padding-left: 1rem;
+}
+.infotext-section p {
+    color: #ffffff; /* White text for contrast */
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    margin-top: 2rem;
+}
+
+.faq-section {
+    width: 80%;
+    margin-left: 1rem;
+}
+.faq-item {
+    overflow: hidden;
+    border-bottom: 1px solid #ddd; /* Viiva jokaisen kysymyksen alle */
+    padding: 1rem 0;
+}
+
+.faq-item:last-child {
+    border-bottom: None; /* Vikan jälkee ei viivaa */
+    padding-bottom: 0;
+}
+.faq-item summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.4rem 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: White;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.faq-item summary::marker {
+    content: "";
+}
+
+.faq-item summary::after {
+    content: "\f078"; /* FontAwesome chevron-down */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: White; 
+    transition: transform 0.3s;
+}
+
+.faq-item[open] summary::after {
+    content: "\f077"; /* FontAwesome chevron-up */
+    rotate: 180deg;
+}
+
+.faq-answer p {
+    padding: 1.5rem 2rem;
+    font-size: 1.2rem;
+    margin: 0;
+    line-height: 1.7;
+    color: white;
+}
+
+/*Valmis aloittamaan osio*/
+
+.ready-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.ready-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ready-section h2 {
+    font-size: 2.2rem;
+    color: #004040;
+    margin-bottom: 1rem;
+}
+
+.ready-section p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ready-buttons {
+    margin: 2rem 0;
+}
+
+.ready-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    margin: 0.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.ready-btn.primary {
+    background: #004040;
+    color: white;
+}
+
+.ready-btn.primary:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+}
+
+.ready-benefits {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.benefit {
+
+    min-width: 226px;
+}
+.benefit i {
+    color: #004040;
+    margin-bottom: 0.5rem;
+}
+
+.benefit p {
+    color: #004040;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ------------------------------- */
+/* MOBILE RESPONSIVE DESIGN        */
+/* ------------------------------- */
+/* Default desktop behavior */
+.hamburger {
+    display: none; /* hide hamburger on desktop */
+}
+.close-menu {
+    display: none;
+}
+@media (max-width: 900px) {
+    
+    /* GENERAL */
+    .container {
+        width: 100%;
+    }
+
+    h1, h2 {
+        text-align: center;
+    }
+    .hero h1 {
+        font-size: 1.4rem; 
+    }
+    /* HEADER */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 10px;
+    }
+
+    /* Hide top links until menu is opened */
+    .top-links {
+        display: none;
+        flex-direction: column;
+        gap: 3rem; /* Add some space between header and nav */
+        position: fixed;
+        inset: 0;
+        background: white;
+        /* Adjust padding for the new layout */
+        padding: 1rem 1.5rem; 
+        z-index: 999999999;
+    }
+
+    .top-links li a {
+    font-size: 1.8rem;
+    font-weight: 600;
+    }
+    /* 1. Styles for the new header (logo + X) */
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    
+    /* Make sure the mobile menu logo looks right */
+    .mobile-menu-header .logo h1 {
+        font-size: 1.5rem;
+        color: #004040;
+    }
+
+    /* 2. Styles for the navigation links wrapper */
+    .mobile-menu-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem; /* Space between "Palvelut" and "Yhteystiedot" */
+        align-items: center; /* Center the links */
+    }
+
+    .mobile-menu-nav li a {
+        font-size: 1.7rem; /* Make text a bit bigger */
+        font-weight: 600;
+    }
+    .close-menu {
+        display: block;
+        font-size: 40px;
+        cursor: pointer;
+        /* Ensure it's not a list item */
+        list-style: none; 
+    }
+    /* When menu is opened */
+    .mobile-menu-open .top-links {
+        display: flex;
+    }
+    .mobile-menu-open .hamburger {
+        display: none;
+    }
+    .mobile-menu-open .hero{
+        display: none;
+    }
+    /* Hamburger icon */
+    .hamburger {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        /* We add z-index to make sure it's above the hero fade */
+        position: relative;
+        z-index: 99;
+    }
+    .hero {
+        display: flex;
+        padding-top: 0; /* Space for fixed header */
+        align-items:center;
+    }
+    /* HERO FORM */
+    #price-form {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        gap: 8px;
+    }
+
+    #price-form input,
+    #price-form select,
+    #price-form button {
+        font-size: 1rem;
+    }
+
+    /* WHY US */
+    #why-us {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .left-content {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+
+    .features {
+        justify-content: center;
+    }
+
+    /* STEPS */
+    .steps {
+        flex-direction: column;
+        align-items:center;
+        gap: 40px;
+    }
+    .curve,
+    .curve-down {
+        display: none;
+    }
+
+    /* CONTACT PAGE */
+    main h1 {
+        font-size: 2.5rem;
+    }
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    #left-section, 
+    #right-section {
+        width: 100%;
+    }
+
+    .portrait-image {
+        width: 328px;
+        height: 380px;
+    }
+
+    .contact-form {
+        margin: 0 1rem;
+    }
+
+    /* FAQ */
+    .faq-section {
+        padding: 0 5px;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        text-align:center;
+    }
+    
+    .info h2 {
+        font-size: 2rem;
+    }
+    
+    .info p {
+        font-size: 1rem;
+    }
+    .faq-section {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    .faq-item summary {
+        padding: 0;
+        font-size: 1rem;
+    }
+    #price-result {
+        margin: 1rem;
+    }
+    /* READY SECTION */
+    .ready-benefits {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* FOOTER */
+    .footer-inner {
+        display:flex;
+        flex-direction: column;
+        text-align: left;
+        align-items: left;
+        gap: 20px;
+    }
 }
