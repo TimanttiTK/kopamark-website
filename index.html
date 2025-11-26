@@ -22,8 +22,9 @@
 
             <ul class="top-links">
                 <li class="close-menu" onclick="toggleMenu()">&times;</li>
-                <li><a href="index.html">Palvelut</a></li>
-                <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="toimistosiivous.html">Toimistosiivous</a></li>
+                <li><a href="yhteystiedot.html">Ota yhteyttä</a></li>
             </ul>
         </section>
         <section id="home" class="hero">  <!-- Hero outside main for now, to keep wrapper small -->
@@ -50,29 +51,80 @@
                     <option value="6-10">6-10</option>
                     <option value="11+">11+</option>
                 </select>
-                <button type="button" onclick="calculatePrice()">Laske Arvio</button>
+                <button type="button" onclick="calculatePrice()">Laske arvio</button>
             </form>
         </section>
     </section>  <!-- Close wrapper here - fade now at bottom of hero -->
 
     <main>  <!-- Main starts after wrapper, wraps lower content -->
-        <section id="why-us">
-            <div class="left-content">
-                <h2>Miksi valita<br>Kopamark?</h2>  <!-- Updated name for consistency -->
-                <hr class="divider"> <!-- Uusi harmaa viiva otsikon alle -->
-                <div class="features">
-                    <div><i class="fas fa-shield-alt fa-2x"></i> Vakuutettu</div>
-                    <div><i class="fas fa-clock fa-2x"></i> Joustava</div>  <!-- Add more like this -->
-                    <div><i class="fas fa-check-circle fa-2x"></i> Tyytyväisyys-<br>takuu</div>
+                <!-- Tikku-opettaja + taulu -komponentti -->
+        <section class="feature-block">
+            <!-- Tikkuhahmo -->
+            <section class="stickman-container">
+                <svg class="stickman" viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg" aria-label="Tikkuhahmo osoittaa taulua">
+                    <!-- Pää -->
+                    <circle cx="80" cy="45" r="22" stroke="currentColor" stroke-width="8" fill="currentColor" stroke-linecap="round"/>
+
+                    <!-- Vartalo -->
+                    <line x1="80" y1="70" x2="80" y2="150"
+                        stroke="currentColor" stroke-width="12" stroke-linecap="round"/>
+
+                    <!-- Vasen käsi -->
+                    <line x1="80" y1="90" x2="50" y2="135"
+                        stroke="currentColor" stroke-width="12" stroke-linecap="round"/>
+
+                    <!-- Oikea käsi + karttakeppi -->
+                    <line x1="80" y1="90" x2="100" y2="115"
+                        stroke="currentColor" stroke-width="12" stroke-linecap="round"/>
+
+                    <!-- Karttakeppi -->
+                    <line x1="120" y1="100" x2="190" y2="70"
+                        stroke="#802a03" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="100" y1="115" x2="120" y2="100"
+                        stroke="currentColor" stroke-width="12" stroke-linecap="round"/>
+
+                    <!-- Vasemman jalan varsi -->
+                    <line x1="80" y1="150" x2="55" y2="205"
+                        stroke="currentColor" stroke-width="12" stroke-linecap="round"/>
+
+                    <!-- Oikean jalan varsi -->
+                    <line x1="80" y1="150" x2="105" y2="205"
+                        stroke="currentColor" stroke-width="12" stroke-linecap="round"/>
+                    <!-- Silmälasit -->
+                    <!-- Vasemman silmän kehys -->
+                    <circle cx="72" cy="45" r="5" stroke="white" stroke-width="2" fill="none" />
+                    <!-- Oikean silmän kehys -->
+                    <circle cx="88" cy="45" r="5" stroke="white" stroke-width="2" fill="none" />
+                    <!-- Silmien välinen silta -->
+                    <line x1="77" y1="45" x2="83" y2="45" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    <line x1="93" y1="45" x2="105" y2="40" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    <line x1="66" y1="45" x2="54" y2="40" stroke="white" stroke-width="2" stroke-linecap="round" />
+                </svg>
+
+                <!-- Tutkimustaulu -->
+                <div class="stats-card">
+                    <div class="stats-content">
+                        <h3>Tutkimusten mukaan – <br>
+                            puhdas työympäristö:</h3>
+                        <ul class="stats-list">
+                            <li>• Lisää tuottavuutta<p>+15%</p></li>
+                            <li>• Vähentää sairauspoissaoloja <p>–24%</p></li>
+                        </ul>
+                    </div>
+                    <div class="stats-pillars">
+                        <div class="pillar pillar-left"></div>
+                        <div class="pillar pillar-right"></div>
+                    </div>
                 </div>
-            </div>
-            <p>Puhdistus ei ole hauskaa. Se vie aikaa, on likaista ja johtaa turhiin vaivoihin. 
-                Onneksi meille se on intohimo, hoidamme toimistosi puhtauden ammattimaisesti, jotta voit keskittyä ydinbisnekseesi. 
-                <br><br>
-                Suomalaisena yrityksenä ymmärrämme paikalliset tarpeet: joustavat aikataulut työaikojen ulkopuolella 
-                ja luotettavaa palvelua ilman yllätyksiä. 
-                Jos et ole tyytyväinen, korjaamme asian takuullamme.
-            </p>
+            </section>
+            <div class="dividing-line"></div>
+            <section class="feature-text">
+                <h2>Keitä olemme?</h2>
+                <p>Me Kopamarkilla siivoamme yrityksille Helsingissä, Espoossa ja Vantaalla niin, että työpäivä tuntuu vähän kevyemmältä.
+                    <br><br>Meille siivous on yksinkertaista: sovitaan selkeästi, pidetään lupaukset ja huolehditaan, että toimisto on aina siisti ja mukava tulla aamulla töihin.
+                    Ei monimutkaisia sopimuksia, ei piilokuluja – vain rehellistä, täsmällistä ja hyvin tehtyä työtä.
+                </p>
+            </section>
         </section>
 
         <section id="how-it-works">

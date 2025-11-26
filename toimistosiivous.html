@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toimistosiivous Helsinki, Espoo, Vantaa | Kopamark</title>
+    <meta name="description" content="Ammattimainen toimistosiivous Helsingissä, Espoossa ja Vantaalla. Henkilökohtaista palvelua – sinä keskityt bisnekseen.">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <!-- SAMA HERO + LASKURI kuin etusivulla -->
+        <section class="hero-wrapper">
+            <section class="header">
+                <div class="logo">
+                    <a href="index.html"><h1>Kopamark</h1></a>
+                </div>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="top-links">
+                    <li class="close-menu" onclick="toggleMenu()">&times;</li>
+                    <li><a href="index.html">Etusivu</a></li>
+                    <li><a href="toimistosiivous.html">Toimistosiivous</a></li>
+                    <li><a href="yhteystiedot.html">Ota yhteyttä</a></li>
+                </ul>
+            </section>
+
+            <section class="hero">
+                <h1><span class="bold-line">Toimistosiivous</span><br><span class="light-line">Helsinki • Espoo • Vantaa</span></h1>
+                <form id="price-form">
+                    <input type="number" id="area" placeholder="Pinta-ala (m²)" min="50" step="1" required>
+                    <select id="location" required>
+                        <option value="">Sijainti</option>
+                        <option value="helsinki">Helsinki</option>
+                        <option value="espoo">Espoo</option>
+                        <option value="vantaa">Vantaa</option>
+                    </select>
+                    <select id="freq" required>
+                        <option value="">Krt/viikko</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <select id="wc" required>
+                        <option value="">WC-määrä</option>
+                        <option value="0-5">0–5</option>
+                        <option value="6-10">6–10</option>
+                        <option value="11-15">11–15</option>
+                        <option value="15+">yli 15</option>
+                    </select>
+                    <button type="button" onclick="calculatePrice()">Laske arvio</button>
+                </form>
+            </section>
+        </section>
+
+        <main>
+
+    <!-- 1. MITÄ TOIMISTOSIIVOUS SISÄLTÄÄ -->
+        <section class="service-content">
+            <div class="container">
+                <h2 class="section-title">Mitä toimistosiivous sisältää?</h2>
+                <p class="lead-text" style="max-width: 800px; margin: 0 auto 3rem;">
+                    Räätälöimme siivouksen aina juuri sinun toimistollesi sopivaksi. Perusviikkosiivoukseen kuuluu aina seuraavat palvelut:
+                </p>
+
+                <div class="checklist-grid">
+                    <div class="check-item">
+                        <h4>Lattiat</h4>
+                        <p>Imurointi ja kosteapyyhintä</p>
+                    </div>
+                    <div class="check-item">
+                        <h4>WC-tilat</h4>
+                        <p>Perusteellinen pesu, desinfiointi, peilit ja hanat</p>
+                    </div>
+                    <div class="check-item">
+                        <h4>Keittiö & taukotila</h4>
+                        <p>Tiskipöydät, mikro, jääkaapin ovet ja kahvikone</p>
+                    </div>
+                    <div class="check-item">
+                        <h4>Roskat</h4>
+                        <p>Tyhjennys, pussien vaihto ja roskien vienti</p>
+                    </div>
+                </div>
+        </section>
+        <section id="why-us">
+            <div class="left-content">
+                <h2>Miksi valita<br>Kopamark?</h2>  <!-- Updated name for consistency -->
+                <hr class="divider"> <!-- Uusi harmaa viiva otsikon alle -->
+                <div class="features">
+                    <div><i class="fas fa-shield-alt fa-2x"></i> Vakuutettu</div>
+                    <div><i class="fas fa-clock fa-2x"></i> Joustava</div>  <!-- Add more like this -->
+                    <div><i class="fas fa-check-circle fa-2x"></i> Tyytyväisyys-<br>takuu</div>
+                </div>
+            </div>
+            <p>Puhdistus ei ole hauskaa. Se vie aikaa, on likaista ja johtaa turhiin vaivoihin. 
+                Onneksi meille se on intohimo, hoidamme toimistosi puhtauden ammattimaisesti, jotta voit keskittyä ydinbisnekseesi. 
+                <br><br>
+                Suomalaisena yrityksenä ymmärrämme paikalliset tarpeet: joustavat aikataulut työaikojen ulkopuolella 
+                ja luotettavaa palvelua ilman yllätyksiä. 
+                Jos et ole tyytyväinen, korjaamme asian takuullamme.
+            </p>
+                </section>
+            </div>
+        </section>
+
+            <section class="info">
+                <section class="infotext-section">
+                    <h2>Usein kysytyt kysymykset</h2>
+                    <p>Jäikö jokin askarruttaa? <br><br>Tässä on vastauksia yleisimpiin kysymyksiin toimistosiivouksesta. Jos et löydä etsimääsi, ota rohkeasti yhteyttä!</p>
+                </section>
+                <section id="faq-section" class="faq-section">
+                    <details class="faq-item">
+                        <summary>Mitä toimistosiivous sisältää?</summary>
+                        <div class="faq-answer">
+                            <p>Perussiivous kattaa lattioiden imuroinnin ja pesun, pintojen pyyhkimisen, roskien tyhjennyksen, saniteettitilojen puhdistuksen sekä keittiön ja taukotilojen siivouksen. Räätälöimme palvelun tarpeidesi mukaan.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Mitä siivous maksaa?</summary>
+                        <div class="faq-answer">
+                            <p>Hinta riippuu toimiston koosta, tiheydestä ja lisäpalveluista. Käytä laskuriamme alustavaan arvioon – tarkka tarjous ilmaisen käynnin jälkeen.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Siivotaanko työaikana vai sen ulkopuolella?</summary>
+                        <div class="faq-answer">
+                            <p>Joustamme asiakkaan toiveiden mukaan.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Tarvitseeko toimistossa olla joku paikalla siivouksen aikana?</summary>
+                        <div class="faq-answer">
+                            <p>Ei tarvitse, jos annatte meille avaimet tai koodin. Voimme siivota työajan ulkopuolella.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Mitä jos siivous ei tyydytä?</summary>
+                        <div class="faq-answer">
+                            <p>Ota yhteyttä heti – korjaamme asian 24 tunnin sisällä.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Voiko palveluun lisätä lisätoiveita?</summary>
+                        <div class="faq-answer">
+                            <p>Kyllä, räätälöimme palvelua – esim. ikkunoiden pesu, mattojen puhdistus tai desinfiointi.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Oletteko vakuutettuja?</summary>
+                        <div class="faq-answer">
+                            <p>Kyllä, yrityksemme ja työntekijämme ovat täysin vakuutettuja vahinkojen varalta.</p>
+                        </div>
+                    </details>
+                </section>
+            </section>
+            <section class="ready-section">
+                <div class="ready-container">
+                    <h2>Valmis aloittamaan?</h2>
+                    <p>Puhdas toimisto odottaa – anna meidän hoitaa siivous, niin sinä voit keskittyä olennaiseen. Saat ilmaisen arvion alle 2 minuutissa.</p>
+                    
+                    <div class="ready-buttons">
+                        <a href="index.html#home" class="ready-btn primary">Hae hinta-arvio nyt</a>
+                    </div>
+
+                    <div class="ready-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-clock fa-3x"></i>
+                            <p>Säästät aikaa</p>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-smile fa-3x"></i>
+                            <p>Iloisempi henkilökunta</p>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-shield-alt fa-3x"></i>
+                            <p>Tyytyväisyystakuu</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        <footer>
+            <div class="footer-inner">
+                <div class="footer-col about">
+                    <h4>Kopamark</h4>
+                    <p>Siivoamme toimistosi ammattimaisesti. Sinä keskityt siihen, mitä teet parhaiten.</p>
+                </div>
+
+                <div class="footer-col contact">
+                    <h4>Yhteystiedot</h4>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+358442313252">044 231 3252</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:tomikopaly@kopamark.com">tomikopaly@kopamark.com</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <small>&copy; <script>document.write(new Date().getFullYear())</script> Kopamark. Kaikki oikeudet pidätetään.</small>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>

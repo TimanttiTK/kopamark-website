@@ -1,0 +1,54 @@
+        <div class="stickman-container">
+            <svg width="200px" height="300px" viewBox="0 0 200 300" class="stickman">
+                <!-- Pää -->
+                <circle cx="100" cy="60" r="25" fill="#004040" stroke="#004040" stroke-width="6" />
+                <!-- Vartalo -->
+                <line x1="100" y1="80" x2="100" y2="200" stroke="#004040" stroke-width="10" stroke-linecap="round"/>
+                
+                <!-- Vasen käsi -->
+                <line x1="100" y1="120" x2="60" y2="170" stroke="#004040" stroke-width="10" stroke-linecap="round"/>
+                
+                <!-- Oikea käsi (heiluu) -->
+                <line class="hand" x1="100" y1="120" x2="140" y2="70" stroke="#004040" stroke-width="10" stroke-linecap="round"/>
+                
+                <!-- Jalat -->
+                <line x1="100" y1="200" x2="70" y2="280" stroke="#004040" stroke-width="10" stroke-linecap="round"/>
+                <line x1="100" y1="200" x2="130" y2="280" stroke="#004040" stroke-width="10" stroke-linecap="round"/>
+                
+                <!-- Siivousmoppi käteen (ekstra kiva!) -->
+                <rect x="135" y="50" width="8" height="80" fill="#8B4513"/>
+                <rect x="125" y="130" width="28" height="20" fill="#FFD700" rx="10"/>
+            </svg>
+        </div>
+
+        CSS
+
+
+        .stickman-container {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.stickman {
+    max-width: 200px;
+}
+
+/* Heilutusanimaatio oikealle kädelle */
+@keyframes wave {
+    0%   { transform: rotate(0deg); }
+    10%  { transform: rotate(5deg); }
+    20%  { transform: rotate(10deg); }
+    30%  { transform: rotate(15deg); }
+    40%  { transform: rotate(10deg); }
+    50%  { transform: rotate(5deg); }
+    60%  { transform: rotate(0deg); }
+    70%  { transform: rotate(-5deg); }
+    80%  { transform: rotate(-10deg); }
+    90%  { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.hand {
+    transform-origin: 100px 120px; /* heiluu olkapäästä */
+    animation: wave 3s ease-in-out infinite;
+}
