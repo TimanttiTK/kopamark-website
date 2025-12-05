@@ -11,7 +11,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6; /* Better readability */
     color: #004040; /* Dark text for contrast */
-    background-color: #f8f9fa; /* Light gray background */
+    background-color: #e9ecef; /* Light gray background */
 }
 
 a {
@@ -145,6 +145,101 @@ footer .footer-inne {
     background-color: #0056b3; /* Tummempi vihreä hoverissa */
 }
 
+/* ===========================
+   HYÖTY-OSIO / BENEFITS
+   =========================== */
+
+.benefits-section {
+    margin: 4rem 0;
+}
+
+/* Hyödynnän samaa .inner-box-rakennetta kuin "Näin se toimii" -osiossa */
+.benefits-section .inner-box {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+}
+
+.benefits-section h2 {
+    font-size: 1.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.benefits-intro {
+    margin-bottom: 2rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+/* Kolmen kortin ruudukko */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.benefit-item {
+    padding: 1.75rem 1.25rem;
+    text-align: center;
+    background: #f9fafb;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    transition: all 0.2s ease;
+}
+
+.benefit-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #e0f2fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.75rem auto;
+}
+
+.benefit-icon i {
+  font-size: 1.5rem;
+  color: #004040;
+}
+
+.benefit-item h3 {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.benefit-item p {
+  font-size: 0.95rem;
+  color: #475569;
+}
+.feature-text {
+  margin: 4rem 0;
+}
+
+.feature-text .about-box {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+}
+
+.feature-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.feature-text p {
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
 /* 4. Why Us Section */
 #why-us {
     background-color: #e9ecef;
@@ -267,13 +362,15 @@ h1, h2, h3 {
 #testimonials {
     background-color: #e9ecef;
     padding: 2rem;
+    margin: 2rem 0;
     text-align: center;
     font-style: italic; /* Italic for quotes */
 }
 
 #testimonials blockquote {
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    margin: 0.5rem auto;
+    width: 60%;
 }
 
 #testimonials p {
@@ -379,6 +476,7 @@ main h1 {
     gap: 2rem;
     justify-content: space-evenly; /* Center content horizontally */
     margin: 2rem 22rem; /* Vertical spacing */
+    margin-bottom: 10rem;
     border-radius: 16px; /* Rounded corners */
     padding: 2rem;
     background-color: #e9ecef; /* Light background for contrast */
@@ -617,9 +715,49 @@ main h1 {
     margin: 0;
 }
 /*toimistosiivous.html*/
+.hero-hallway-wrapper {
+    background-image: url('../images/hallway.jpg'); /* Keep your path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; /* Already there - needed for ::before */
+    overflow: hidden; /* Prevents fade from spilling out */
+}
 
-.service-content { padding: 4rem 0 5rem; background: #f8f9fa; text-align: center; }
-.section-title { font-size: 2.8rem; color: #004040; margin-bottom: 1rem; }
+.hero-hallway-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;  /* Slightly taller for noticeability */
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.97)10%,
+        rgba(255, 255, 255, 0.9)30%,
+        rgba(255, 255, 255, 0.85) 60%,
+        rgba(255, 255, 255, 0.5) 100%
+    ); /* Reversed: Starts solid at top, fades to transparent downward */
+    z-index: 1;
+}
+
+/* Ensure content is above the fade */
+.hero-hallway-wrapper > * {
+    position: relative;
+    z-index: 2; /* Keeps header and hero text on top */
+}
+.service-content {
+    padding: 4rem 0 5rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    color: #004040;
+    
+    margin-bottom: 1rem;
+}
+
 .checklist-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -628,6 +766,7 @@ main h1 {
     margin: 3rem auto;
     text-align: left;
 }
+
 .check-item {
     display: flex;
     align-items: center;
@@ -637,11 +776,13 @@ main h1 {
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
+
 .check-item h4 {
     font-weight: bold;
     font-size: 1.2rem;
     margin-bottom: 0.4rem;
 }
+
 .check-item p{ 
     text-align: center;
 }
@@ -862,104 +1003,6 @@ main h1 {
     }
 }
 
-/*stickman*/
-/* Layout */
-.feature-block {
-    margin: 2rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 2rem; /* toimii nyt!! */
-}
-.stickman-container {
-    display: flex;
-    flex-direction: row; /* tikku-ukko ja kortti rivissä */
-    align-items: flex-start;
-    position: relative; /* tarvitaan dividerin absolute-sijoitteluun */
-}
-.feature-text {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 500px;
-}
-
-.dividing-line {
-    width: 8px;         /* paksuus */
-    background: #1f2937;
-    height: 100%;
-    min-height: 250px;  /* voit säätää tähän pituutta */
-    border-radius: 4px;
-}
-
-/* Tikku-ukko */
-.stickman {
-    width: 280px;
-    height: auto;
-    color: #1f2937; /* tummanharmaa premium-look */
-}
-
-.stats-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.stats-content {
-    background-color: #cedcde;
-    border: black 4px solid;
-    border-radius: 16px;
-    padding: 10px 24px;
-    position: relative;
-    text-align: center;
-    color: black;
-}
-
-.stats-list {
-    list-style: disc;
-    margin-top: 0.7rem;
-    margin-bottom: 2rem;
-}
-
-.stats-list li {
-    display: flex;
-    align-items: baseline;
-    font-weight: bold;
-    color: black;
-    justify-content: space-between;
-}
-
-.stats-list li p {
-    color: #1f2937;
-    display: inline-block;
-    width: 60px;
-    font-weight: bold;
-    align-self: right;
-}
-
-/* Pilarit / jalat */
-  .stats-pillars {
-    display: flex;
-    width: 60px;
-    justify-content: space-between;
-  }
-
-  .pillar {
-    background: #4b5563;
-    width: 12px;
-    border-radius: 0 0 4px 4px;
-  }
-
-  .pillar-left {
-    height: 110px;
-    transform: skewX(-10deg);
-  }
-
-  .pillar-right {
-    height: 110px;
-    transform: skewX(10deg);
-  }
 
 
 
