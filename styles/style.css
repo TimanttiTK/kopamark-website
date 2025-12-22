@@ -5,9 +5,9 @@
     box-sizing: border-box; /* Makes padding not add to width */
 }
 :root {
-    --primary-color: #2892D7;
-    --not-color: #D76E28; /* Teal color for accents */
-    --secondary-color: #D76E2810; /* Light gray for backgrounds */
+    --primary-color: #213682;
+    --not-color: #C19771; /* Teal color for accents */
+    --secondary-color: #C1977150; /* Light gray for backgrounds */
     --font-family: 'Sora', Arial, Helvetica, sans-serif; /* Clean font */
 }
 body {
@@ -16,7 +16,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6; /* Better readability */
     color: var(--primary-color); /* Dark text for contrast */
-    background-color: white; /* Light gray background */
+    background-color: #FFFEFE; /* Light gray background */
 }
 
 a {
@@ -144,7 +144,7 @@ footer .footer-inne {
     cursor: pointer;
 }
 .hero button:hover {
-    background-color: #0056b3; /* Tummempi vihreä hoverissa */
+    background-color: var(--primary-color); /* Tummempi vihreä hoverissa */
 }
 
 /* ======================================
@@ -157,7 +157,7 @@ footer .footer-inne {
 }
 
 .about-benefits .benefits-column {
-    max-width: 1100px;
+    max-width: 1180px;
     margin: 0 auto;
 }
 /* Vasen palsta */
@@ -165,7 +165,7 @@ footer .footer-inne {
     font-size: 1.9rem;
     margin-bottom: 0.75rem;
     text-align: center;
-    color : black;
+    color : var(--primary-color);
 }
 
 .benefits-intro {
@@ -184,14 +184,16 @@ footer .footer-inne {
 .about-benefits .benefit-item {
     padding: 1.4rem 1.2rem;
     text-align: center;
-    border: 3px solid var(--primary-color);
+    border: 4px solid var(--not-color);
     border-radius: 24px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     transition: all 0.2s ease;
+    background-color: white;
 }
 .about-benefits .benefit-item p, h3 {
     color: black;
 }
+
 .about-benefits .benefit-item:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
@@ -209,21 +211,18 @@ footer .footer-inne {
 }
 
 .about-benefits .benefit-icon i {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     color: var(--primary-color);
 }
 
 .about-benefits .benefit-item h3 {
     margin-bottom: 0.25rem;
-    font-size: 1.05rem;
+    font-size: 1.25rem;
+    color: var(--primary-color)
 }
 
 /* Oikea palsta */
 /* Oikea puoli: teksti selkeäksi kolumniksi */
-.about-copy {
-    max-width: 520px;        /* rajoita rivipituus */
-    margin: 1rem 4rem;       /* keskitys vaakasuunnassa */
-}
 
 .about-copy .eyebrow {
     font-size: 0.85rem;
@@ -245,19 +244,12 @@ footer .footer-inne {
     margin-bottom: 0.8rem;
 }
 
-/* Lyhyt, hallittu viiva ennen badgeja */
-.about-divider {
-    width: 370px;
-    border: none;
-    border-top: 1px solid #d1d5db;
-    margin: 1.2rem 0 1rem;
-}
-
 /* Badge-rivi: vasenreunasta, ei kelluvaa keskisoppaa */
 .about-badges {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem 1rem;
+    margin-top: 1.5rem;
 }
 
 .about-badges .badge {
@@ -269,54 +261,60 @@ footer .footer-inne {
     background: white;
     border: 1px solid var(--primary-color);
     font-size: 0.9rem;
-    color:var(--not-color);
+    color: black;
 }
 
 .about-badges .badge i {
     font-size: 1rem;
-    color: var(--not-color);
+    color: var(--primary-color);
 }
 
-/* KEITÄ OLEMME - COFFEE-LAYOUT */
+/* KEITÄ OLEMME - COFFEE-LAYOUT, RESPONSIVE */
 .half-image {
+    /* keskitys ja max-leveys, “tilaa karsitaan reunoista” */
+    max-width: 1200px;
+    width: min(1200px, 100% - 6rem);
     margin: 0 auto 4rem;
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-    gap: 2.5rem;
     align-items: center;
+    column-gap: 2rem;
     position: relative;
 }
 
 /* Tekstiboksi = kehys */
 .about-copy {
     background: #ffffff;
-    border: 6px solid var(--not-color);
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.15);
-    padding: 4rem 4rem;
-    max-width: 580px;
+    border: 5px solid var(--not-color);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
+    padding: 3.25rem 3.5rem;
+    padding-right: 4rem;
+    max-width: 620px;
     position: relative;
     z-index: 1;
-    transform: translateX(260px);
 }
 
-/* Kuva, joka "syö" kehyksen */
+/* Kuva, joka “syö” kehystä */
 .about-photo {
     position: relative;
     z-index: 2;
+
+    /* negatiivinen marginaali hoitaa päällekkäisyyden,
+       skaalautuu clampilla kun ruutu kaventuu */
+    margin-left: clamp(-5rem, -6vw, -2.5rem);
 }
 
 .about-photo img {
-    width: 75%;
+    width: 100%;
     display: block;
     box-shadow: 0 20px 45px rgba(15, 23, 42, 0.65);
-    transform: translateX(-100px); /* tämä vie kuvaa kehyksen päälle */
 }
-
 
 
 /* 5. How It Works */
 #how-it-works {
-    margin: 0 8rem;
+    margin: auto;
+    max-width: 1400px;
     padding: 0.5rem 2rem;
     text-align: center;
     padding-bottom: 2.5rem;
@@ -324,11 +322,12 @@ footer .footer-inne {
 }
 
 .inner-box {
-    background-color: var(--secondary-color); /* White background for inner box */
+    background-color: white; /* White background for inner box */
     padding: 1rem;
     padding-bottom: 2.5rem;
     border-radius: 30px; /* Pyöristetyt reunat – pehmentää eroa */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.212); /* Varjo nostaa osion esiin */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45); /* Varjo nostaa osion esiin */
+    border: 4px solid var(--not-color); /* Kehys korostaa osion */
 }
 
 #how-it-works h2 {
@@ -370,7 +369,7 @@ footer .footer-inne {
 }
 
 .curve path, .curve-down path {
-  stroke: var(--primary-color);             /* viivan väri */
+  stroke: black;             /* viivan väri */
   stroke-width: 2;          /* paksuus */
   stroke-dasharray: 4 6;    /* tekee pisteviivan */
   fill: none;
@@ -386,7 +385,6 @@ footer .footer-inne {
 }
 /* 6. Testimonials */
 #testimonials {
-    background-color: white;
     padding: 3rem 2rem 4rem;
     margin-top: 2rem;
     text-align: center;
@@ -408,7 +406,7 @@ footer .footer-inne {
 /* 7. Footer */
 footer {
     text-align: left;
-    padding: 1rem 1rem;
+    padding: 1.5rem 1rem;
     background-color: var(--primary-color);
     color: White;
     font-size: 0.95rem;
@@ -487,6 +485,12 @@ footer {
     position: relative;
     z-index: 2; /* Keeps header and hero text on top */
 }
+
+/* Varmista, että header + mobiilivalikko on kaiken muun yläpuolella */
+.image-section > .header {
+    z-index: 9999;
+}
+
 main h1 {
     text-align: center;
     font-size: 3rem;
@@ -504,7 +508,7 @@ main h1 {
     justify-content: space-between;
     border-radius: 16px;
     padding: 2rem 2.5rem;
-    background-color: #e9ecef;
+    background-color: #FFFDF8;
 
     /* max 960px leveä, muuten aina ~2rem sivumarginaali */
     width: min(960px, calc(100% - 4rem));
@@ -530,7 +534,7 @@ main h1 {
     padding-left: 2rem;
     padding-right: 2rem;
     border-radius: 8px; /* Pyöristetyt reunat */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Kevyt varjo nostamaan lomaketta */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Kevyt varjo nostamaan lomaketta */
     max-width: 600px; /* Rajoitettu leveys, jotta ei levene liikaa */
     margin: 0 auto; /* Keskitys */
 }
@@ -561,18 +565,19 @@ main h1 {
 }
 
 .contact-form button:hover {
-    background-color: #0056b3; /* Tummempi vihreä hoverissa */
+    background-color: var(--primary-color); /* Tummempi vihreä hoverissa */
 }
 
 #price-result {
-    background-color: #f0f8ff; /* Vaalea tausta tulokselle */
-    margin: 0 30rem;
+    background-color: #FFFEFE; /* Vaalea tausta tulokselle */
+    margin: 0 auto;
     padding: 1rem;
     margin-bottom: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.212);
     text-align: center;
     color: var(--primary-color); /* Vihreä teksti onnistumiselle */
+    width: min(960px, calc(100% - 4rem));
 }
 #price-result.active {
     display: block; /* Näytä kun sisältö asetettu */
@@ -691,7 +696,7 @@ main h1 {
 
 .ready-section h2 {
     font-size: 2.2rem;
-    color: black;
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
@@ -723,7 +728,7 @@ main h1 {
 }
 
 .ready-btn.primary:hover {
-    background: #0056b3;
+    background: var(--primary-color);
     transform: translateY(-3px);
 }
 
@@ -804,10 +809,11 @@ main h1 {
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: #D9EAFA;
+    background: white;
     padding: 1.8rem;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border: 3px solid var(--not-color);
 }
 
 .check-item h4 {
@@ -818,11 +824,13 @@ main h1 {
 
 .check-item p{ 
     text-align: center;
+    color: black;
 }
 
 /* ------------------------------- */
-/* MOBILE RESPONSIVE DESIGN        */
+/* MOBILE & TABLET RESPONSIVE     */
 /* ------------------------------- */
+
 /* Default desktop behavior */
 .hamburger {
     display: none; /* hide hamburger on desktop */
@@ -830,210 +838,375 @@ main h1 {
 .close-menu {
     display: none;
 }
+
+
+/* Piilota half-image kuvasarake alle 1325px */
+@media (max-width: 1325px) {
+    .half-image {
+        grid-template-columns: 1fr; /* teksti ottaa koko leveyden */
+    }
+
+    .half-image .about-photo {
+        display: none; /* kuva pois */
+    }
+
+    .half-image .about-copy {
+        max-width: 900px;  /* ettei tekstistä tule liian leveä */
+        margin: 0 auto;
+    }
+}
+
+/* TABLET / PIENTÄ DESKTOPIA (≈ 1200px ja alle) */
+@media (max-width: 1200px) {
+
+.hero {
+    padding: 4rem 1.75rem;
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+}
+
+.about-benefits {
+    margin: 3.5rem 0 5rem;
+}
+
+.about-benefits .benefits-column {
+    padding: 0 1.75rem;
+}
+
+/* 3 → 2 korttia vierekkäin */
+.about-benefits .benefits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem;
+}
+
+.half-image {
+    width: min(1100px, 100% - 3rem);
+    column-gap: 1.75rem;
+}
+
+.about-copy {
+    padding: 2.6rem 2.5rem 2.8rem;
+    max-width: none;
+}
+
+#how-it-works {
+    padding: 2.5rem 1.75rem 3rem;
+}
+
+.inner-box {
+    padding: 1.5rem 1.75rem 2.5rem;
+}
+
+.checklist-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin: 2.5rem auto 0;
+}
+
+.service-content {
+    padding: 3.5rem 1.75rem 4rem;
+}
+
+.contact-container {
+    width: min(960px, 100% - 3rem);
+}
+
+.footer-inner {
+    grid-template-columns: 1.5fr 1fr 1fr;
+}
+}
+
+/* PUHELIN (≈ 900px ja alle) */
 @media (max-width: 900px) {
-    
-    /* GENERAL */
-    .container {
-        width: 100%;
-    }
 
-    h1, h2 {
-        text-align: center;
-    }
-    .hero h1 {
-        font-size: 1.4rem; 
-    }
-    /* HEADER */
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px 10px;
-    }
+/* GENERAL */
+body {
+    font-size: 0.95rem;
+}
 
-    /* Hide top links until menu is opened */
-    .top-links {
-        display: none;
-        flex-direction: column;
-        gap: 3rem; /* Add some space between header and nav */
-        position: fixed;
-        inset: 0;
-        background: white;
-        /* Adjust padding for the new layout */
-        padding: 1rem 1.5rem; 
-        z-index: 999999999;
-    }
+.container {
+    width: 100%;
+}
 
-    .top-links li a {
+h1, h2 {
+    text-align: center;
+}
+
+/* HEADER + MOBILE MENU */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+/* Piilotetaan linkit, kunnes menu avataan */
+.top-links {
+    display: none;
+    flex-direction: column;
+    gap: 3rem;
+    position: fixed;
+    inset: 0;
+    background: white;
+    padding: 1.5rem 1.5rem;
+    z-index: 9999;
+}
+
+.top-links li a {
     font-size: 1.8rem;
     font-weight: 600;
-    }
-    /* 1. Styles for the new header (logo + X) */
-    .mobile-menu-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
-    
-    /* Make sure the mobile menu logo looks right */
-    .mobile-menu-header .logo h1 {
-        font-size: 1.5rem;
-        color: var(--primary-color);
-    }
+}
 
-    /* 2. Styles for the navigation links wrapper */
-    .mobile-menu-nav {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem; /* Space between "Palvelut" and "Yhteystiedot" */
-        align-items: center; /* Center the links */
-    }
+.close-menu {
+    display: block;
+    font-size: 40px;
+    cursor: pointer;
+    list-style: none;
+    align-self: flex-end;
+}
 
-    .mobile-menu-nav li a {
-        font-size: 1.7rem; /* Make text a bit bigger */
-        font-weight: 600;
-    }
-    .close-menu {
-        display: block;
-        font-size: 40px;
-        cursor: pointer;
-        /* Ensure it's not a list item */
-        list-style: none; 
-    }
-    /* When menu is opened */
-    .mobile-menu-open .top-links {
-        display: flex;
-    }
-    .mobile-menu-open .hamburger {
-        display: none;
-    }
-    .mobile-menu-open .hero{
-        display: none;
-    }
-    /* Hamburger icon */
-    .hamburger {
-        display: block;
-        font-size: 30px;
-        cursor: pointer;
-        /* We add z-index to make sure it's above the hero fade */
-        position: relative;
-        z-index: 99;
-    }
-    .hero {
-        display: flex;
-        padding-top: 0; /* Space for fixed header */
-        align-items:center;
-    }
-    /* HERO FORM */
-    #price-form {
-        display: flex;
-        flex-direction: column;
-        width: 250px;
-        gap: 8px;
-    }
+/* Avoin menu */
+.mobile-menu-open .top-links {
+    display: flex;
+}
+.mobile-menu-open .hamburger {
+    display: none;
+}
+.mobile-menu-open .hero {
+    display: none;
+}
 
-    #price-form input,
-    #price-form select,
-    #price-form button {
-        font-size: 1rem;
-    }
+/* Hamburger nappi näkyviin */
+.hamburger {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    position: relative;
+    z-index: 99;
+}
 
-    /* WHY US */
-    #why-us {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
-    
-    .left-content {
-        margin-right: 0;
-        margin-bottom: 3rem;
-    }
+/* HERO */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3.5rem 1.25rem 3rem;
+    min-height: auto;
+}
 
-    .features {
-        justify-content: center;
-    }
+.hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+}
 
-    /* STEPS */
-    .steps {
-        flex-direction: column;
-        align-items:center;
-        gap: 40px;
-    }
-    .curve,
-    .curve-down {
-        display: none;
-    }
+#price-form {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    gap: 0.5rem;
+}
 
-    /* CONTACT PAGE */
-    main h1 {
-        font-size: 2.5rem;
-    }
-    .contact-container {
-        flex-direction: column;
-        gap: 40px;
-    }
+#price-form input,
+#price-form select,
+#price-form button {
+    font-size: 1rem;
+}
 
-    #left-section, 
-    #right-section {
-        width: 100%;
-    }
+/* HYÖDYT-OSIO */
+.about-benefits {
+    margin: 3rem 0 3.5rem;
+}
 
-    .portrait-image {
-        width: 328px;
-        height: 380px;
-    }
+.about-benefits .benefits-column {
+    padding: 0 1.5rem;
+}
 
-    .contact-form {
-        margin: 0 1rem;
-    }
+.benefits-intro {
+    text-align: left;
+}
 
-    /* FAQ */
-    .faq-section {
-        padding: 0 5px;
-    }
+.about-benefits .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
 
-    .info {
-        display: flex;
-        flex-direction: column;
-        text-align:center;
-    }
-    
-    .info h2 {
-        font-size: 2rem;
-    }
-    
-    .info p {
-        font-size: 1rem;
-    }
-    .faq-section {
-        padding: 0;
-        margin: 0;
-        width: 100%;
-    }
-    .faq-item summary {
-        padding: 0;
-        font-size: 1rem;
-        text-align: left;
-    }
-    #price-result {
-        margin: 1rem;
-    }
-    /* READY SECTION */
-    .ready-benefits {
-        flex-direction: column;
-        gap: 20px;
-    }
+.about-benefits .benefit-item {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
 
-    /* FOOTER */
-    .footer-inner {
-        display:flex;
-        flex-direction: column;
-        text-align: left;
-        align-items: left;
-        gap: 20px;
-    }
+/* KEITÄ OLEMME - KUVA + KORTTI */
+.half-image {
+    grid-template-columns: 1fr;
+    width: min(640px, 100% - 2rem);
+    margin: 0 auto 3.5rem;
+    row-gap: 1.75rem;
+}
+
+.about-copy {
+    padding: 2.25rem 1.75rem 2.3rem;
+    max-width: 100%;
+    box-shadow: 0 10px 25px rgba(15,23,42,0.12);
+}
+
+.about-photo {
+    margin-left: 0;
+}
+
+.about-photo img {
+    max-height: 260px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* NÄIN SE TOIMII */
+#how-it-works {
+    padding: 2.5rem 1rem 3rem;
+}
+
+.inner-box {
+    border-radius: 24px;
+    padding: 1.5rem 1.25rem 2rem;
+}
+
+.steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.curve,
+.curve-down {
+    display: none;
+}
+
+.step {
+    max-width: 260px;
+}
+
+/* TESTIMONIAL */
+#testimonials {
+    padding: 2.5rem 1.5rem 3rem;
+}
+
+/* TOIMISTOSIIVOUS – PALVELUSISÄLTÖ */
+.service-content {
+    padding: 3rem 1.5rem 3.5rem;
+}
+
+.section-title {
+    font-size: 2.1rem;
+}
+
+.checklist-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2.5rem auto 0;
+}
+
+/* FAQ-BANDI */
+.info {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 2.5rem 1.25rem;
+    min-height: auto;
+    gap: 1.75rem;
+}
+
+.infotext-section h2 {
+    font-size: 2rem;
+    padding-left: 0;
+}
+
+.infotext-section p {
+    font-size: 1rem;
+    padding-left: 0;
+}
+
+.faq-section {
+    width: 100%;
+    margin-left: 0;
+    padding: 0;
+}
+
+.faq-item summary {
+    padding: 1rem 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.faq-answer p {
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+}
+
+/* READY SECTION */
+.ready-section {
+    padding: 3rem 1.5rem 4rem;
+}
+
+.ready-container {
+    max-width: 640px;
+}
+
+.ready-benefits {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* YHTEYSTIEDOT-SIVU */
+main h1 {
+    font-size: 2.3rem;
+    padding: 0 1rem;
+}
+
+.contact-container {
+    flex-direction: column;
+    gap: 2.5rem;
+    width: min(640px, 100% - 2rem);
+    margin: 2rem auto 4rem;
+    padding: 1.75rem 1.5rem 2rem;
+}
+
+#left-section,
+#right-section {
+    width: 100%;
+}
+
+.portrait-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+}
+
+.contact-form {
+    margin: 0;
+    padding: 1.5rem 1.25rem 2rem;
+}
+
+#price-result {
+    width: min(640px, 100% - 2rem);
+    margin: 1.5rem auto;
+}
+
+/* FOOTER */
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 0 1.5rem;
+}
+
+.footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0 1.5rem 0.5rem;
+}
 }
 
 
