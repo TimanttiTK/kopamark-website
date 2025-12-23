@@ -828,386 +828,418 @@ main h1 {
 }
 
 /* ------------------------------- */
-/* MOBILE & TABLET RESPONSIVE     */
+/* MOBILE & TABLET RESPONSIVE      */
 /* ------------------------------- */
+
+/* Pakolliset peruskorjaukset: estää sivuttaisylivuodon ja helpottaa laskentaa */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* laastari + estää puhelimen sivuttaisvenytyksen */
+}
 
 /* Default desktop behavior */
 .hamburger {
     display: none; /* hide hamburger on desktop */
 }
+
 .close-menu {
-    display: none;
+    display: none; /* näkyy vain kun menu auki mobiilissa */
 }
 
-
-/* Piilota half-image kuvasarake alle 1325px */
-@media (max-width: 1325px) {
-    .half-image {
-        grid-template-columns: 1fr; /* teksti ottaa koko leveyden */
-    }
-
-    .half-image .about-photo {
-        display: none; /* kuva pois */
-    }
-
-    .half-image .about-copy {
-        max-width: 900px;  /* ettei tekstistä tule liian leveä */
-        margin: 0 auto;
-    }
-}
-
-/* TABLET / PIENTÄ DESKTOPIA (≈ 1200px ja alle) */
+/* Tablet / pientä desktopia (1200px ja alle) */
 @media (max-width: 1200px) {
 
-.hero {
-    padding: 4rem 1.75rem;
+    .hero {
+        padding: 4rem 1.75rem;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .about-benefits {
+        margin: 3.5rem 0 5rem;
+    }
+
+    .about-benefits .benefits-column {
+        padding: 0 1.75rem;
+    }
+
+    /* 3 -> 2 korttia vierekkäin */
+    .about-benefits .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.75rem;
+    }
+
+    .half-image {
+        width: min(1100px, 100% - 3rem);
+        column-gap: 1.75rem;
+    }
+
+    .about-copy {
+        padding: 2.6rem 2.5rem 2.8rem;
+        max-width: none;
+    }
+
+    #how-it-works {
+        padding: 2.5rem 1.75rem 3rem;
+    }
+
+    .inner-box {
+        padding: 1.5rem 1.75rem 2.5rem;
+    }
+
+    .checklist-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        margin: 2.5rem auto 0;
+    }
+
+    .service-content {
+        padding: 3.5rem 1.75rem 4rem;
+    }
+
+    .contact-container {
+        width: min(960px, 100% - 3rem);
+    }
+
+    .footer-inner {
+        grid-template-columns: 1.5fr 1fr 1fr;
+    }
 }
 
-.hero h1 {
-    font-size: 2.4rem;
+/* Half-image: piilota kuvasarake alle 1325px ja lukitse keskitys
+   TAMA BLOKKI ON TARKOITUKELLA 1200-blokin JALKEEN, jotta se voittaa sen */
+@media (max-width: 1325px) {
+
+    .half-image {
+        width: min(900px, 100% - 2rem);
+        margin-left: auto;
+        margin-right: auto;
+
+        /* jos half-image on grid */
+        grid-template-columns: 1fr;
+
+        /* jos half-image joskus on flex */
+        justify-content: center;
+    }
+
+    /* kuva oikeasti pois + ei saa varata tilaa */
+    .half-image .about-photo,
+    .half-image .left-half-image {
+        display: none !important;
+        width: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* tappaa kaikki vanhat desktop-siirrot jotka aiheuttaa sivuttaisylivuotoa */
+    .half-image .about-copy,
+    .about-copy {
+        transform: none !important;
+        margin: 0 auto !important;
+        max-width: 100% !important;
+    }
 }
 
-.about-benefits {
-    margin: 3.5rem 0 5rem;
-}
-
-.about-benefits .benefits-column {
-    padding: 0 1.75rem;
-}
-
-/* 3 → 2 korttia vierekkäin */
-.about-benefits .benefits-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.75rem;
-}
-
-.half-image {
-    width: min(1100px, 100% - 3rem);
-    column-gap: 1.75rem;
-}
-
-.about-copy {
-    padding: 2.6rem 2.5rem 2.8rem;
-    max-width: none;
-}
-
-#how-it-works {
-    padding: 2.5rem 1.75rem 3rem;
-}
-
-.inner-box {
-    padding: 1.5rem 1.75rem 2.5rem;
-}
-
-.checklist-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    margin: 2.5rem auto 0;
-}
-
-.service-content {
-    padding: 3.5rem 1.75rem 4rem;
-}
-
-.contact-container {
-    width: min(960px, 100% - 3rem);
-}
-
-.footer-inner {
-    grid-template-columns: 1.5fr 1fr 1fr;
-}
-}
-
-/* PUHELIN (≈ 900px ja alle) */
+/* Puhelin (900px ja alle) */
 @media (max-width: 900px) {
 
-/* GENERAL */
-body {
-    font-size: 0.95rem;
+    /* GENERAL */
+    body {
+        font-size: 0.95rem;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    /* HEADER + MOBILE MENU */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+
+        /* varmistaa, ettei menu jää minkaan kortin taakse (yhteystiedot-sivu) */
+        position: relative;
+        z-index: 9999;
+    }
+
+    /* Piilotetaan linkit, kunnes menu avataan */
+    .top-links {
+        display: none;
+        flex-direction: column;
+        gap: 3rem;
+        position: fixed;
+        inset: 0;
+        background: white;
+        padding: 1.5rem 1.5rem;
+        z-index: 99999;
+    }
+
+    .top-links li a {
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+
+    /* Close-nappi vain kun menu on auki */
+    .mobile-menu-open .close-menu {
+        display: block;
+        font-size: 40px;
+        cursor: pointer;
+        list-style: none;
+        align-self: flex-end;
+    }
+
+    /* Avoin menu */
+    .mobile-menu-open .top-links {
+        display: flex;
+    }
+
+    .mobile-menu-open .hamburger {
+        display: none;
+    }
+
+    .mobile-menu-open .hero {
+        display: none;
+    }
+
+    /* Hamburger nappi näkyviin */
+    .hamburger {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        position: relative;
+        z-index: 100000;
+    }
+
+    /* HERO */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3.5rem 1.25rem 3rem;
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    #price-form {
+        display: flex;
+        flex-direction: column;
+        width: 260px;
+        gap: 0.5rem;
+    }
+
+    #price-form input,
+    #price-form select,
+    #price-form button {
+        font-size: 1rem;
+    }
+
+    /* HYODYT-OSIO */
+    .about-benefits {
+        margin: 3rem 0 3.5rem;
+    }
+
+    .about-benefits .benefits-column {
+        padding: 0 1.5rem;
+    }
+
+    .benefits-intro {
+        text-align: left;
+    }
+
+    .about-benefits .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .about-benefits .benefit-item {
+        box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    /* KEITA OLEMME - kuva pois, teksti keskelle, ei ylivuotoa */
+    .half-image {
+        grid-template-columns: 1fr !important;
+        width: min(640px, 100% - 1.5rem) !important;
+        margin: 0 auto 3.5rem;
+        row-gap: 1.75rem;
+    }
+
+    .half-image .about-photo,
+    .half-image .left-half-image {
+        display: none !important;
+    }
+
+    .about-copy {
+        padding: 2rem 1.25rem !important;
+        max-width: 100% !important;
+        transform: none !important;
+        margin: 0 auto !important;
+        box-shadow: 0 10px 25px rgba(15,23,42,0.12);
+    }
+
+    /* NAIN SE TOIMII */
+    #how-it-works {
+        padding: 2.5rem 1rem 3rem;
+    }
+
+    .inner-box {
+        border-radius: 24px;
+        padding: 1.5rem 1.25rem 2rem;
+    }
+
+    .steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .curve,
+    .curve-down {
+        display: none;
+    }
+
+    .step {
+        max-width: 260px;
+    }
+
+    /* TESTIMONIAL */
+    #testimonials {
+        padding: 2.5rem 1.5rem 3rem;
+    }
+
+    /* TOIMISTOSIIVOUS - PALVELUSISALTO */
+    .service-content {
+        padding: 3rem 1.5rem 3.5rem;
+    }
+
+    .section-title {
+        font-size: 2.1rem;
+    }
+
+    .checklist-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2.5rem auto 0;
+    }
+
+    /* FAQ */
+    .info {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        padding: 2.5rem 1.25rem;
+        min-height: auto;
+        gap: 1.75rem;
+    }
+
+    .infotext-section h2 {
+        font-size: 2rem;
+        padding-left: 0;
+    }
+
+    .infotext-section p {
+        font-size: 1rem;
+        padding-left: 0;
+    }
+
+    .faq-section {
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+    }
+
+    .faq-item summary {
+        padding: 1rem 0;
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .faq-answer p {
+        padding: 0.75rem 0;
+        font-size: 0.95rem;
+    }
+
+    /* READY SECTION */
+    .ready-section {
+        padding: 3rem 1.5rem 4rem;
+    }
+
+    .ready-container {
+        max-width: 640px;
+    }
+
+    .ready-benefits {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    /* YHTEYSTIEDOT-SIVU */
+    main h1 {
+        font-size: 2.3rem;
+        padding: 0 1rem;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 2.5rem;
+        width: min(640px, 100% - 2rem);
+        margin: 2rem auto 4rem;
+        padding: 1.75rem 1.5rem 2rem;
+    }
+
+    #left-section,
+    #right-section {
+        width: 100%;
+    }
+
+    .portrait-image {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+    }
+
+    .contact-form {
+        margin: 0;
+        padding: 1.5rem 1.25rem 2rem;
+    }
+
+    #price-result {
+        width: min(640px, 100% - 2rem);
+        margin: 1.5rem auto;
+    }
+
+    /* FOOTER */
+    .footer-inner {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding: 0 1.5rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0 1.5rem 0.5rem;
+    }
 }
 
-.container {
-    width: 100%;
-}
-
-h1, h2 {
-    text-align: center;
-}
-
-/* HEADER + MOBILE MENU */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-}
-
-/* Piilotetaan linkit, kunnes menu avataan */
-.top-links {
-    display: none;
-    flex-direction: column;
-    gap: 3rem;
-    position: fixed;
-    inset: 0;
-    background: white;
-    padding: 1.5rem 1.5rem;
-    z-index: 9999;
-}
-
-.top-links li a {
-    font-size: 1.8rem;
-    font-weight: 600;
-}
-
-.close-menu {
-    display: block;
-    font-size: 40px;
-    cursor: pointer;
-    list-style: none;
-    align-self: flex-end;
-}
-
-/* Avoin menu */
-.mobile-menu-open .top-links {
-    display: flex;
-}
-.mobile-menu-open .hamburger {
-    display: none;
-}
-.mobile-menu-open .hero {
-    display: none;
-}
-
-/* Hamburger nappi näkyviin */
-.hamburger {
-    display: block;
-    font-size: 30px;
-    cursor: pointer;
-    position: relative;
-    z-index: 99;
-}
-
-/* HERO */
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3.5rem 1.25rem 3rem;
-    min-height: auto;
-}
-
-.hero h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-}
-
-#price-form {
-    display: flex;
-    flex-direction: column;
-    width: 260px;
-    gap: 0.5rem;
-}
-
-#price-form input,
-#price-form select,
-#price-form button {
-    font-size: 1rem;
-}
-
-/* HYÖDYT-OSIO */
-.about-benefits {
-    margin: 3rem 0 3.5rem;
-}
-
-.about-benefits .benefits-column {
-    padding: 0 1.5rem;
-}
-
-.benefits-intro {
-    text-align: left;
-}
-
-.about-benefits .benefits-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-}
-
-.about-benefits .benefit-item {
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
-
-/* KEITÄ OLEMME - KUVA + KORTTI */
-.half-image {
-    grid-template-columns: 1fr;
-    width: min(640px, 100% - 2rem);
-    margin: 0 auto 3.5rem;
-    row-gap: 1.75rem;
-}
-
-.about-copy {
-    padding: 2.25rem 1.75rem 2.3rem;
-    max-width: 100%;
-    box-shadow: 0 10px 25px rgba(15,23,42,0.12);
-}
-
-.about-photo {
-    margin-left: 0;
-}
-
-.about-photo img {
-    max-height: 260px;
-    width: 100%;
-    object-fit: cover;
-}
-
-/* NÄIN SE TOIMII */
-#how-it-works {
-    padding: 2.5rem 1rem 3rem;
-}
-
-.inner-box {
-    border-radius: 24px;
-    padding: 1.5rem 1.25rem 2rem;
-}
-
-.steps {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-}
-
-.curve,
-.curve-down {
-    display: none;
-}
-
-.step {
-    max-width: 260px;
-}
-
-/* TESTIMONIAL */
-#testimonials {
-    padding: 2.5rem 1.5rem 3rem;
-}
-
-/* TOIMISTOSIIVOUS – PALVELUSISÄLTÖ */
-.service-content {
-    padding: 3rem 1.5rem 3.5rem;
-}
-
-.section-title {
-    font-size: 2.1rem;
-}
-
-.checklist-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin: 2.5rem auto 0;
-}
-
-/* FAQ-BANDI */
-.info {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    padding: 2.5rem 1.25rem;
-    min-height: auto;
-    gap: 1.75rem;
-}
-
-.infotext-section h2 {
-    font-size: 2rem;
-    padding-left: 0;
-}
-
-.infotext-section p {
-    font-size: 1rem;
-    padding-left: 0;
-}
-
-.faq-section {
-    width: 100%;
-    margin-left: 0;
-    padding: 0;
-}
-
-.faq-item summary {
-    padding: 1rem 0;
-    font-size: 1rem;
-    text-align: left;
-}
-
-.faq-answer p {
-    padding: 0.75rem 0;
-    font-size: 0.95rem;
-}
-
-/* READY SECTION */
-.ready-section {
-    padding: 3rem 1.5rem 4rem;
-}
-
-.ready-container {
-    max-width: 640px;
-}
-
-.ready-benefits {
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-/* YHTEYSTIEDOT-SIVU */
-main h1 {
-    font-size: 2.3rem;
-    padding: 0 1rem;
-}
-
-.contact-container {
-    flex-direction: column;
-    gap: 2.5rem;
-    width: min(640px, 100% - 2rem);
-    margin: 2rem auto 4rem;
-    padding: 1.75rem 1.5rem 2rem;
-}
-
-#left-section,
-#right-section {
-    width: 100%;
-}
-
-.portrait-image {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-}
-
-.contact-form {
-    margin: 0;
-    padding: 1.5rem 1.25rem 2rem;
-}
-
-#price-result {
-    width: min(640px, 100% - 2rem);
-    margin: 1.5rem auto;
-}
-
-/* FOOTER */
-.footer-inner {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    align-items: flex-start;
-    gap: 1.25rem;
-    padding: 0 1.5rem;
-}
-
-.footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding: 0 1.5rem 0.5rem;
-}
-}
 
 
 
