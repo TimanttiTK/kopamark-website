@@ -496,14 +496,8 @@ main h1 {
     font-size: 3rem;
 }
 
-.portrait-image {
-    max-width: 220px;
-    height: auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Kevyt varjo */
-    margin-bottom: 1rem;
-}
 .portrait {
-    text-align: center; /* Center the content */
+    text-align: left; /* Center the content */
 }
 .portrait h2 {
     font-size: 50px; /* Teal color for heading */
@@ -524,7 +518,7 @@ main h1 {
 .contact-info p {
     display: flex; /* Use flexbox for alignment */
     align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
+    justify-content: left; /* Center items horizontally */
     margin: 5px 0; /* Add some vertical spacing */
     color: black;
 }
@@ -834,6 +828,13 @@ main h1 {
     color: black;
 }
 
+.portrait-image {
+    max-width: 250px;
+    height: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Kevyt varjo */
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
 /* ------------------------------- */
 /* MOBILE & TABLET RESPONSIVE      */
 /* ------------------------------- */
@@ -847,6 +848,7 @@ html, body {
     max-width: 100%;
     overflow-x: hidden; /* laastari + estää puhelimen sivuttaisvenytyksen */
 }
+
 
 /* Default desktop behavior */
 .hamburger {
@@ -1064,7 +1066,7 @@ html, body {
     }
 
     .benefits-intro {
-        text-align: left;
+        text-align: center;
     }
 
     .about-benefits .benefits-grid {
@@ -1089,6 +1091,9 @@ html, body {
         display: none !important;
     }
 
+    .eyebrow {
+        text-align: center;
+    }
     .about-copy {
         padding: 2rem 1.25rem !important;
         max-width: 100% !important;
@@ -1201,7 +1206,7 @@ html, body {
     }
 
     .contact-container {
-        flex-direction: column;
+        flex-direction: column-reverse;
         gap: 2.5rem;
         width: min(640px, 100% - 2rem);
         margin: 2rem auto 4rem;
@@ -1217,6 +1222,14 @@ html, body {
         width: 100%;
         max-width: 320px;
         height: auto;
+    }
+
+    .portrait {
+        text-align: center;
+    }
+
+    .contact-info p {
+        justify-content: center;
     }
 
     .contact-form {
